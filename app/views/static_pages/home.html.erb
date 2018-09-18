@@ -32,7 +32,7 @@
       statusChangeCallback(response);
     });
   }
-// b8ab7ef99353a44ed1b27c203a662f7a ---- app secret
+
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '929935887215359',
@@ -42,22 +42,9 @@
       version    : 'v2.8' // use graph api version 2.8
     });
 
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
-
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
-
   };
 
   // Load the SDK asynchronously
@@ -69,17 +56,27 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
+
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Response', response);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
       document.getElementById('status').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
     });
   }
+
+  //add event listener to login button
+document.getElementById('loginBtn').addEventListener('click', function() {
+  //do the login
+  FB.login(function(response) {
+    if (response.authResponse) {
+      //user just authorized your app
+      document.getElementById('loginBtn').style.display = 'none';
+      testAPI();
+    }
+  }, {scope: 'email,public_profile', return_scopes: true});
+}, false);
+
 </script>
 
 <!--
@@ -88,9 +85,11 @@
   the FB.login() function when clicked.
 -->
 
+<button id="loginBtn">Facebook Login</button>
+<div id="response"></div>
+
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
-
 <div id="status">
 </div>
 

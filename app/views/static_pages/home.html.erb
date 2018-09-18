@@ -5,6 +5,22 @@
 <meta charset="UTF-8">
 </head>
 <body>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+<button id="loginBtn">Facebook Login</button>
+<div id="response"></div>
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+<div id="status">
+</div>
+
+
 <script>
   // This is called with the results from from FB.getLoginStatus().
   // function statusChangeCallback(response) {
@@ -103,35 +119,24 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
  
 //add event listener to login button
-document.getElementById('loginBtn').addEventListener('click', function() {
-  //do the login
-  FB.login(function(response) {
-    if (response.authResponse) {
-      //user just authorized your app
-      document.getElementById('loginBtn').style.display = 'none';
-      getUserData();
-    }
-  }, {scope: 'email,public_profile', return_scopes: true});
-}, false);
+window.onload=function(){
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    //do the login
+    FB.login(function(response) {
+      if (response.authResponse) {
+        //user just authorized your app
+        document.getElementById('loginBtn').style.display = 'none';
+        getUserData();
+      }
+    }, {scope: 'email,public_profile', return_scopes: true});
+  }, false);
+}
+
 
 
 
 
 </script>
-
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-
-<button id="loginBtn">Facebook Login</button>
-<div id="response"></div>
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-<div id="status">
-</div>
 
 </body>
 </html>

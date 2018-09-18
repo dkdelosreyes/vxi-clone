@@ -12,10 +12,10 @@
 
 <script>
 function getUserData() {
-  FB.api('/me', function(response) {
+  FB.api('/me', {fields: 'name,first_name, last_name'}, function(response) {
     console.log('getUserData', response);
 
-    document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
+    document.getElementById('response').innerHTML = 'Name: ' + response.name + 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
   });
 }
  

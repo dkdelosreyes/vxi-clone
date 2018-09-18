@@ -29,9 +29,10 @@ window.fbAsyncInit = function() {
  console.log('fbAsyncInit');
   //check user session and refresh it
   FB.getLoginStatus(function(response) {
+    console.log('getLoginStatus', response);
     if (response.status === 'connected') {
       //user is authorized
-      document.getElementById('loginBtn').style.display = 'none';
+      document.getElementById('loginBtn').style.color = 'gray';
       getUserData();
     } else {
       //user is not authorized

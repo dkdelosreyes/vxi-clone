@@ -84,7 +84,7 @@
 
 function getUserData() {
   FB.api('/me', function(response) {
-    document.getElementById('response').innerHTML = 'Hello ' + response.name;
+    document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
   });
 }
  
@@ -119,18 +119,18 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
  
 //add event listener to login button
-window.onload=function(){
+// window.onload=function(){
   document.getElementById('loginBtn').addEventListener('click', function() {
     //do the login
     FB.login(function(response) {
       if (response.authResponse) {
         //user just authorized your app
-        document.getElementById('loginBtn').style.display = 'none';
+        document.getElementById('loginBtn').style.color = 'gray';
         getUserData();
       }
     }, {scope: 'email,public_profile', return_scopes: true});
   }, false);
-}
+//}
 
 
 

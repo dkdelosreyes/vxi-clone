@@ -6,62 +6,64 @@
 </head>
 <body>
 
+<%= @response.inspect %>
+
 <button id="loginBtn">Facebook Login</button>
 <div id="response"></div>
 
 
 <script>
-function getUserData() {
-  FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
-    console.log('getUserData', response);
+// function getUserData() {
+//   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
+//     console.log('getUserData', response);
 
-    document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
-  });
-}
+//     document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
+//   });
+// }
  
-window.fbAsyncInit = function() {
-  //SDK loaded, initialize it
-  FB.init({
-    appId      : '929935887215359',
-    xfbml      : true,
-    version    : 'v2.8'
-  });
- console.log('fbAsyncInit');
-  //check user session and refresh it
-  FB.getLoginStatus(function(response) {
-    console.log('getLoginStatus', response);
-    if (response.status === 'connected') {
-      //user is authorized
-      document.getElementById('loginBtn').style.color = 'gray';
-      getUserData();
-    } else {
-      //user is not authorized
-      console.log('please log in');
-    }
-  });
-};
+// window.fbAsyncInit = function() {
+//   //SDK loaded, initialize it
+//   FB.init({
+//     appId      : '929935887215359',
+//     xfbml      : true,
+//     version    : 'v2.8'
+//   });
+//  console.log('fbAsyncInit');
+//   //check user session and refresh it
+//   FB.getLoginStatus(function(response) {
+//     console.log('getLoginStatus', response);
+//     if (response.status === 'connected') {
+//       //user is authorized
+//       document.getElementById('loginBtn').style.color = 'gray';
+//       getUserData();
+//     } else {
+//       //user is not authorized
+//       console.log('please log in');
+//     }
+//   });
+// };
  
-//load the JavaScript SDK
-(function(d, s, id){
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.com/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+// //load the JavaScript SDK
+// (function(d, s, id){
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) {return;}
+//   js = d.createElement(s); js.id = id;
+//   js.src = "//connect.facebook.com/en_US/sdk.js";
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
  
-//add event listener to login button
-  document.getElementById('loginBtn').addEventListener('click', function() {
-    //do the login
-    FB.login(function(response) {
-      if (response.authResponse) {
-        console.log('user just authorized your app', response);
-        //user just authorized your app
-        document.getElementById('loginBtn').style.color = 'gray';
-        getUserData();
-      }
-    }, {scope: 'email,public_profile', return_scopes: true});
-  }, false);
+// //add event listener to login button
+//   document.getElementById('loginBtn').addEventListener('click', function() {
+//     //do the login
+//     FB.login(function(response) {
+//       if (response.authResponse) {
+//         console.log('user just authorized your app', response);
+//         //user just authorized your app
+//         document.getElementById('loginBtn').style.color = 'gray';
+//         getUserData();
+//       }
+//     }, {scope: 'email,public_profile', return_scopes: true});
+//   }, false);
 
 </script>
 

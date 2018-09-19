@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Delete all data and reset auto increments
+models = [ User, 
+						Blog,
+						Status ]
+
+models.each do |model|
+	model.delete_all
+	ActiveRecord::Base.connection.execute("Delete from #{model.table_name}")
+	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{model.table_name}'")
+end
+
+# Seeding of data
+
+# Status
+Status.create( title: 'Active', code: 'active')
+Status.create( title: 'Inactive', code: 'inactive' )
+
+# Users
+password = "password"
+User.create( email: "a@a.com",
+							password: password,
+							password_confirmation: password,
+							first_name: "Admin",
+							last_name: "Istrator",
+							status_id: 1 
+							)

@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+#section-slider {
+	height: 500px;
+	#mainCarousel {
+		position: absolute;
+		width: 100%;
+		img {
+			max-width: 1200px;
+    	margin: 0 auto;
+		}
+	}
+	.sec1-contents {
+		position: relative;
+		.nav-header {
+			display: inline-block;
+		}
+		nav {
+			text-align: right;
+    	display: inline-block;
+		}
+	}
+}
+

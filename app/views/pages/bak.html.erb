@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<button id="loginBtn">Facebook Login</button>
+<div id="response"></div>
+
+
+<script>
+// function getUserData() {
+//   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
+//     console.log('getUserData', response);
+
+//     document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
+//   });
+// }
+ 
+// window.fbAsyncInit = function() {
+//   //SDK loaded, initialize it
+//   FB.init({
+//     appId      : '929935887215359',
+//     xfbml      : true,
+//     version    : 'v2.8'
+//   });
+//  console.log('fbAsyncInit');
+//   //check user session and refresh it
+//   FB.getLoginStatus(function(response) {
+//     console.log('getLoginStatus', response);
+//     if (response.status === 'connected') {
+//       //user is authorized
+//       document.getElementById('loginBtn').style.color = 'gray';
+//       getUserData();
+//     } else {
+//       //user is not authorized
+//       console.log('please log in');
+//     }
+//   });
+// };
+ 
+// //load the JavaScript SDK
+// (function(d, s, id){
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) {return;}
+//   js = d.createElement(s); js.id = id;
+//   js.src = "//connect.facebook.com/en_US/sdk.js";
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
+ 
+// //add event listener to login button
+//   document.getElementById('loginBtn').addEventListener('click', function() {
+//     //do the login
+//     FB.login(function(response) {
+//       if (response.authResponse) {
+//         console.log('user just authorized your app', response);
+//         //user just authorized your app
+//         document.getElementById('loginBtn').style.color = 'gray';
+//         getUserData();
+//       }
+//     }, {scope: 'email,public_profile', return_scopes: true});
+//   }, false);
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+class PagesController < ApplicationController
+ #  require 'uri'
+	# require 'net/http'
+
+  def home
+
+  # 	@url = URI("https://my.talkpush.com/api/talkpush_services/campaigns/4/campaign_invitations")
+
+		# @http = Net::HTTP.new(@url.host, @url.port)
+		# @http.use_ssl = true
+		# @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+		# @request = Net::HTTP::Post.new(@url)
+		# @request["Content-Type"] = 'application/json'
+		# @request["Cache-Control"] = 'no-cache'
+		# @request.body = '{
+		#     "api_key": "dbed2ab32d1e9f1453d1a321480debca",
+		#     "api_secret": "a7281c8ff4ad9d0d78ae640d4c63b64c",
+		#     "campaign_invitation": {
+		#       "first_name": "John",
+		#       "last_name": "Peters",
+		#       "email": "dianne.delosreyes@nchcss.com",
+		#       "user_phone_number": "09455027432"
+		#     }
+		#   }'
+		# @response = @http.request(@request)
+
+  end
+
+  def blog
+  end
+
+  def privacy
+  end
+end

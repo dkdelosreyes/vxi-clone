@@ -1,69 +1,65 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-</head>
-<body>
+<main>
+	<section id='section-slider' background-color="#02c1b2">
 
-<button id="loginBtn">Facebook Login</button>
-<div id="response"></div>
+		<div id="mainCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+		  <div class="carousel-inner">
+		    <div class="carousel-item active" style="background-color: #02c1b2">
+		      <img class="d-block w-100" src="<%= image_url 'raffy-1.png' %>" alt="First slide">
+		    </div>
+		    <div class="carousel-item" style="background-color: #f71d58">
+		    	<img class="d-block w-100" src="<%= image_url 'rex-1353x699.png' %>" alt="First slide">
+		    </div>
+		    <div class="carousel-item" style="background-color: #ff5a00">
+		    	<img class="d-block w-100" src="<%= image_url 'sundae-1353x699.png' %>" alt="First slide">
+		    </div>
+		    <div class="carousel-item" style="background-color: #afb803">
+		    	<img class="d-block w-100" src="<%= image_url 'velvet-1353x699.png' %>" alt="First slide">
+		    </div>
+		  </div>
+		  <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	
+		<div class="sec1-contents">
+		<!-- <h1>Text here</h1> -->
+		<header>
+			<div class="container">
+				<div class="navbar-header"><a href=""><%= image_tag 'vxi-logo.png' %></a></div>
+				<nav class='navbar fixed-top' >
+					<ul class="nav navbar-nav navbar-right">
+					<li><a href="">Home</a></li>
+			  	<li><a href="/blog">Blog</a></li>
+				</nav>
+			</div>
+		</header>
 
+
+		</div>
+
+	</section>
+
+</main>
+
+<footer>
+	<p>footer</p>
+</footer>
 
 <script>
-// function getUserData() {
-//   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
-//     console.log('getUserData', response);
+	$(function(){
 
-//     document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
-//   });
-// }
- 
-// window.fbAsyncInit = function() {
-//   //SDK loaded, initialize it
-//   FB.init({
-//     appId      : '929935887215359',
-//     xfbml      : true,
-//     version    : 'v2.8'
-//   });
-//  console.log('fbAsyncInit');
-//   //check user session and refresh it
-//   FB.getLoginStatus(function(response) {
-//     console.log('getLoginStatus', response);
-//     if (response.status === 'connected') {
-//       //user is authorized
-//       document.getElementById('loginBtn').style.color = 'gray';
-//       getUserData();
-//     } else {
-//       //user is not authorized
-//       console.log('please log in');
-//     }
-//   });
-// };
- 
-// //load the JavaScript SDK
-// (function(d, s, id){
-//   var js, fjs = d.getElementsByTagName(s)[0];
-//   if (d.getElementById(id)) {return;}
-//   js = d.createElement(s); js.id = id;
-//   js.src = "//connect.facebook.com/en_US/sdk.js";
-//   fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
- 
-// //add event listener to login button
-//   document.getElementById('loginBtn').addEventListener('click', function() {
-//     //do the login
-//     FB.login(function(response) {
-//       if (response.authResponse) {
-//         console.log('user just authorized your app', response);
-//         //user just authorized your app
-//         document.getElementById('loginBtn').style.color = 'gray';
-//         getUserData();
-//       }
-//     }, {scope: 'email,public_profile', return_scopes: true});
-//   }, false);
+		/* Set the height of section-slider based on contents */
+	  var y = 0;
+	  $('#section-slider #mainCarousel').each(function(){
+	    y = Math.max(y, $(this).height() + $(this).position().top);
+	  });
+
+	  $('#section-slider').css('height', y);
+	});
 
 </script>
-
-</body>
-</html>

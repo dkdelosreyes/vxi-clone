@@ -68,19 +68,19 @@
 						<form class="form-signup">
 						  <div class="row">
 						    <div class="col">
-						      <a href="" class="btn-fb" id="btnFB">Sign Up with Facebook</a>
+						      <a href="" class="btn-fb" id="BtnFB">Sign Up with Facebook</a>
 						      <div class="help-info">Or fill up this form</div>
 						    </div>
 						  </div>
 						  <div class="row">
 						    <div class="col">
 						      <label for="">First Name*</label>
-						      <input type="text" class="">
+						      <input type="text" class="" id="FirstName">
 						      <!-- <small id="passwordHelpBlock" class="form-text">The field is required.</small> -->
 						    </div>
 						    <div class="col">
 						      <label for="">Last Name*</label>
-						      <input type="text" class="">
+						      <input type="text" class="" id="LastName">
 						      <!-- <small id="passwordHelpBlock" class="form-text">The field is required.</small> -->
 						    </div>
 						  </div>
@@ -196,8 +196,9 @@
 	function getUserData() {
 	  FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
 	    console.log('getUserData', response);
-
-	    document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
+	    $('#FirstName').val(response.first_name);
+	    $('#LastName').val(response.last_name);
+	    // document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
 	  });
 	}
 	 
@@ -214,7 +215,7 @@
 	    console.log('getLoginStatus', response);
 	    if (response.status === 'connected') {
 	      //user is authorized
-	      document.getElementById('btnFB').style.color = 'gray';
+	      // document.getElementById('BtnFB').style.color = 'gray';
 	      getUserData();
 	    } else {
 	      //user is not authorized
@@ -233,13 +234,13 @@
 	}(document, 'script', 'facebook-jssdk'));
 	 
 	//add event listener to login button
-	  document.getElementById('btnFB').addEventListener('click', function() {
+	  document.getElementById('BtnFB').addEventListener('click', function() {
 	    //do the login
 	    FB.login(function(response) {
 	      if (response.authResponse) {
 	        console.log('user just authorized your app', response);
 	        //user just authorized your app
-	        document.getElementById('btnFB').style.color = 'gray';
+	        // document.getElementById('BtnFB').style.color = 'gray';
 	        data = getUserData();
 	      }
 	    }, {scope: 'email,public_profile', return_scopes: true});

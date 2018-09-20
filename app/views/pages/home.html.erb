@@ -65,7 +65,14 @@
       <div class="row">
         <div class="container">
           <div class=" col-lg-5">
-            <form class="form-signup">
+
+            <% flash.each do |message_type, message| %>
+              <div class="<%= "alert alert-#{message_type}" %>"><%= message %></div>
+            <% end %>
+
+            <!-- <br><br><br> -->
+            <!-- <form class="form-signup"> -->
+            <%= form_with url: signup_vxi_path, remote: true, class: 'form-signup' do |form| %>
               <div class="row">
                 <div class="col">
                   <a href="" class="btn-fb" id="BtnFBdummy">Sign Up with Facebook</a>
@@ -76,12 +83,14 @@
               <div class="row">
                 <div class="col">
                   <label for="">First Name*</label>
-                  <input type="text" class="" id="FirstName">
+                  <%= form.text_field :first_name %>
+                  <!-- <input type="text" class="" id="FirstName"> -->
                   <!-- <small id="passwordHelpBlock" class="form-text">The field is required.</small> -->
                 </div>
                 <div class="col">
                   <label for="">Last Name*</label>
-                  <input type="text" class="" id="LastName">
+                  <%= form.text_field :last_name %>
+                  <!-- <input type="text" class="" id="LastName"> -->
                   <!-- <small id="passwordHelpBlock" class="form-text">The field is required.</small> -->
                 </div>
               </div>
@@ -89,18 +98,20 @@
               <div class="row">
                 <div class="col">
                   <label for="">Contact Number*</label>
-                  <input type="text" class="">
+                  <!-- <input type="text" class=""> -->
+                  <%= form.text_field :user_phone_number %>
                 </div>
                 <div class="col">
                   <label for="">Email Address</label>
-                  <input type="text" class="">
+                  <!-- <input type="text" class=""> -->
+                  <%= form.email_field :email %>
                 </div>
               </div>
             
               <div class="row">
                 <!--<div class="col">-->
                   <label for="">Which VXI site do you want to apply for?*</label>
-                  <select id="">
+                  <select id="location" name="location">
                     <option value=""></option>
                     <option value="North EDSA, Quezon City">North EDSA, Quezon City</option>
                     <option value="EDSA Buendia, Makati City">EDSA Buendia, Makati City</option>
@@ -116,7 +127,7 @@
               <div class="row">
                 <!--<div class="col">-->
                   <label for="">Which position are you applying for?*</label>
-                  <select id="">
+                  <select id="position" name="position">
                     <option value=""></option><option value="Sales Associate">Sales Associate</option><option value="Tech Support Associate">Tech Support Associate</option><option value="Customer Service Associate">Customer Service Associate</option>
                   </select>
                 <!--</div>-->
@@ -125,7 +136,7 @@
               <div class="row">
                 <!--<div class="col">-->
                   <label for="">What is your highest educational attainment?*</label>
-                  <select id="">
+                  <select id="education" name="education">
                     <option value=""></option><option value="High school graduate">High school graduate</option><option value="K-12 Graduate">K-12 Graduate</option><option value="College graduate">College graduate</option><option value="Undergrad below 2 years">Undergrad below 2 years</option><option value="Undergrad 2 years and up">Undergrad 2 years and up</option><option value="Post Graduate">Post Graduate</option>
                   </select>
                 <!--</div>-->
@@ -134,7 +145,7 @@
               <div class="row">
                 <!--<div class="col">-->
                   <label for="">Do you have call center experience?*</label>
-                  <select id="">
+                  <select id="experience" name="experience">
                     <option value=""></option><option value="None">None</option><option value="Yes, 1-5 months">Yes, 1-5 months</option><option value="Yes, 6-11 months">Yes, 6-11 months</option><option value="Yes, 12-23 months">Yes, 12-23 months</option><option value="Yes, 24 months and above">Yes, 24 months and above</option>
                   </select>
                 <!--</div>-->
@@ -143,7 +154,7 @@
               <div class="row">
                 <!--<div class="col">-->
                   <label for="">How did you learn about our job opening?*</label>
-                  <select id="" class="col-lg-6">
+                  <select id="source_info" name="source_info" class="col-lg-6">
                     <option value=""></option><option value="Social Media">Social Media</option><option value="Online Job Portals">Online Job Portals</option><option value="Email">Email</option><option value="School Events">School Events</option><option value="Referral">Referral</option><option value="Outdoor Advertising">Outdoor Advertising</option><option value="Print Advertising">Print Advertising</option>
                   </select>
                 <!--</div>-->
@@ -151,7 +162,8 @@
             
               <div class="form-group">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <!-- <input class="form-check-input" type="checkbox" id="gridCheck"> -->
+                  <%= form.check_box :terms, class: 'form-check-input' %>
                   <label class="form-check-label" for="gridCheck">
                     I have agree to the <a href="http://vxi-family.com/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="http://www.vxi-family.com/terms-conditions/" target="_blank">Terms and Conditions.</a>
                   </label>
@@ -160,10 +172,12 @@
             
               <div class="row">
                 <!--<div class="col">-->
-                  <button type="submit" class="btn-yellow">Submit</button>
+                  <!-- <button type="submit" class="btn-yellow">Submit</button> -->
+                  <%= form.submit 'Submit', class: 'btn-yellow' %>
                 <!--</div>-->
               </div>
-            </form>
+            <% end %>
+            <!-- </form> -->
           </div>
           <div class="col-lg-7"></div>
       </div>

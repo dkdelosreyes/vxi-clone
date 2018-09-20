@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 	get 'blog', to: 'pages#blog'
 	get 'privacy-policy', to: 'pages#privacy'
 
+	post 'signup_vxi', to: 'pages#signup_vxi'
+
 	resources :blogs
 end

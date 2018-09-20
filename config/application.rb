@@ -17,10 +17,10 @@ module VxiClone
     # the framework and any gems in your application.
     
     # Add the fonts path
-    config.assets.enabled = true;
-    config.assets.paths << Rails.root.join('app/assets/fonts')
+    # config.assets.enabled = true;
+    # config.assets.paths << Rails.root.join('app/assets/fonts')
     
-    # Precompile additional assets
-    config.assets.precompile += %w( .svg .eot .woff .ttf )
+    # # Precompile additional assets
+    # config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 end

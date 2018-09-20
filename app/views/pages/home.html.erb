@@ -178,7 +178,7 @@
 <footer>
 	<p>footer</p>
 
-  <button id="loginBtn">Facebook Login</button>
+  <button id="loginBtn" class="btn-fb">Facebook Login</button>
 <div id="response"></div>
 </footer>
 
@@ -200,8 +200,8 @@ function getUserData() {
     console.log('getUserData', response);
 
     document.getElementById('response').innerHTML = 'First Name: ' + response.first_name + ' Last Name: ' + response.last_name;
-    // $('#FirstName').val(response.first_name);
-    // $('#LastName').val(response.last_name);
+    $('#FirstName').val(response.first_name);
+    $('#LastName').val(response.last_name);
   });
 }
  
@@ -218,7 +218,7 @@ window.fbAsyncInit = function() {
     console.log('getLoginStatus', response);
     if (response.status === 'connected') {
       //user is authorized
-      document.getElementById('BtnFB').style.color = 'gray';
+      // document.getElementById('BtnFB').style.color = 'gray';
       getUserData();
     } else {
       //user is not authorized
@@ -237,13 +237,13 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
  
 //add event listener to login button
-  document.getElementById('BtnFB').addEventListener('click', function() {
+  document.getElementById('loginBtn').addEventListener('click', function() {
     //do the login
     FB.login(function(response) {
       if (response.authResponse) {
         console.log('user just authorized your app', response);
         //user just authorized your app
-        document.getElementById('BtnFB').style.color = 'gray';
+        // document.getElementById('BtnFB').style.color = 'gray';
         getUserData();
       }
     }, {scope: 'email,public_profile', return_scopes: true});

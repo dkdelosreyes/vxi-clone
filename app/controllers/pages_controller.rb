@@ -36,8 +36,8 @@ class PagesController < ApplicationController
 		    "campaign_invitation": {
 		      "first_name": "John",
 		      "last_name": "Peters",
-		      "email": "dkdelosreyes3@gmail.com",
-		      "user_phone_number": "09455027432"
+		      "email": "dkdelosreyes6@gmail.com",
+		      "user_phone_number": "09999999996"
 		    }
 		  }'
 		@response = @http.request(@request)

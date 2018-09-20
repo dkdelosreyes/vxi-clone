@@ -22,5 +22,6 @@ module VxiClone
     
     # # Precompile additional assets
     # config.assets.precompile += %w( .svg .eot .woff .ttf )
+    config.autoload_paths = %W(#{config.root}/app/validators)
   end
 end

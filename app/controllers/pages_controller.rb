@@ -1,41 +1,72 @@
+
 class PagesController < ApplicationController
 	require 'uri'
 	require 'net/http'
-  
-  def home
+	require 'json'
 
+  def home
+  	@applicant = Applicant.new
   end
 
   def signup_vxi
+  	# TODO: clean
+  	@data = params['applicant']
+		@applicant = Applicant.new(
+				email: @data['email'], 
+				user_phone_number: @data['user_phone_number'], 
+				first_name: @data['first_name'], 
+				last_name: @data['last_name'], 
+				location: @data['location'], 
+				position: @data['position'], 
+				education: @data['education'], 
+				experience: @data['experience'], 
+				source_info: @data['source_info']
+			)
 
-  	@url = URI("https://my.talkpush.com/api/talkpush_services/campaigns/4/campaign_invitations")
+  	if @applicant.valid?
+  		details = {
+  			'api_key': "dbed2ab32d1e9f1453d1a321480debca",
+			  'api_secret': "a7281c8ff4ad9d0d78ae640d4c63b64c",
+			  'campaign_invitation': {
+					'first_name': @data['first_name'],
+					'last_name': @data['last_name'],
+					'email': @data['email'],
+					'user_phone_number': @data['user_phone_number'],
+					'location': @data['location'], 
+					'position': @data['position'], 
+					'education': @data['education'], 
+					'experience': @data['experience'], 
+					'source_info': @data['source_info']
+				}
+			}
 
-		@http = Net::HTTP.new(@url.host, @url.port)
-		@http.use_ssl = true
-		@http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+	  	@url = URI("https://my.talkpush.com/api/talkpush_services/campaigns/4/campaign_invitations")
 
-		@request = Net::HTTP::Post.new(@url)
-		@request["Content-Type"] = 'application/json'
-		@request["Cache-Control"] = 'no-cache'
-		@request.body = '{
-		    "api_key": "dbed2ab32d1e9f1453d1a321480debca",
-		    "api_secret": "a7281c8ff4ad9d0d78ae640d4c63b64c",
-		    "campaign_invitation": {
-		      "first_name": "John",
-		      "last_name": "Peters",
-		      "email": "dkdelosreyes@gmail.com",
-		      "user_phone_number": "09063897290"
-		    }
-		  }'
-		@response = @http.request(@request)
+			@http = Net::HTTP.new(@url.host, @url.port)
+			@http.use_ssl = true
+			@http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-		# debugger
-		# @response = 'params'
-		# render 'home'
-		# @locations = {id: 'North EDSA, Quezon City', title: 'North EDSA, Quezon City'}
-		
-		flash[:success] = @response
-		# flash[:success] = "Success"
+			@request = Net::HTTP::Post.new(@url)
+			@request["Content-Type"] = 'application/json'
+			@request["Cache-Control"] = 'no-cache'
+
+			# details = {api_key: "dbed2ab32d1e9f1453d1a321480debca",
+			#     api_secret: "a7281c8ff4ad9d0d78ae640d4c63b64c",
+			#     campaign_invitation: {
+			#       first_name: "John",
+			#       last_name: "Peters",
+			#       email: "dkdelosreyes6@gmail.com",
+			#       user_phone_number: "09999999996"
+			#     }
+			#   }
+
+			@request.body = details.to_json
+			@response = @http.request(@request)
+  		flash[:info] = @response.read_body
+  	else
+  		flash[:info] = @applicant.errors
+  	end
+
 		redirect_to root_path
   end
 
@@ -43,5 +74,11 @@ class PagesController < ApplicationController
   end
 
   def privacy
+  end
+
+  private 
+
+  def applicant_params
+  	params.require(:applicant).permit(:email)
   end
 end

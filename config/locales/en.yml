@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  talkpush: 
+    duplicated: "You already sent your application. Kindly check you email."
+    success: "Application Successful!"

@@ -1,8 +1,8 @@
-
 class PagesController < ApplicationController
 	require 'uri'
 	require 'net/http'
 	require 'json'
+
 
   def home
   	@applicant = Applicant.new
@@ -64,7 +64,12 @@ class PagesController < ApplicationController
 			@response = @http.request(@request)
   		flash[:info] = @response.read_body
   	else
-  		flash[:info] = @applicant.errors
+  		flash[:errors] = @applicant.errors if @applicant.errors.any?
+  		# @dianne = 'asda'#@applicant.errors if @applicant.errors.any?
+  		# flash[:info] = @applicant.errors
+  		# format.js # call create.js.erb on save errors
+      # format.json { render json: @applicant.errors, status: :unprocessable_entity }
+  		# test = @applicant.errors
   	end
 
 		redirect_to root_path

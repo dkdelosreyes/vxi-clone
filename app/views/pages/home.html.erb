@@ -70,7 +70,8 @@
                   }(document, 'script', 'facebook-jssdk'));
                    
                   //add event listener to login button
-                  document.getElementById('BtnFB').addEventListener('click', function() {
+                  document.getElementById('BtnFB').addEventListener('click', function(e) {
+                    e.preventDefault();
                     //do the login
                     FB.login(function(response) {
                       if (response.authResponse) {

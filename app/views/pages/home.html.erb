@@ -248,8 +248,8 @@ function scrollToTop(scrollDuration) {
 
 function getUserData() {
   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
-    $('#FirstName').val(response.first_name);
-    $('#LastName').val(response.last_name);
+    $('#first_name').val(response.first_name);
+    $('#last_name').val(response.last_name);
   });
 }
 /* Commented out to remove localhost error */
@@ -283,14 +283,24 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
  
 //add event listener to login button
-  document.getElementById('BtnFB').addEventListener('click', function() {
-    //do the login
-    FB.login(function(response) {
-      if (response.authResponse) {
-        //user just authorized your app
-        getUserData();
-      }
-    }, {scope: 'email,public_profile', return_scopes: true});
-  }, false);
+document.getElementById('BtnFB').addEventListener('click', function() {
+  //do the login
+  FB.login(function(response) {
+    if (response.authResponse) {
+      //user just authorized your app
+      getUserData();
+    }
+  }, {scope: 'email,public_profile', return_scopes: true});
+}, false);
+
+document.getElementById('BtnFB2').addEventListener('click', function() {
+  //do the login
+  FB.login(function(response) {
+    if (response.authResponse) {
+      //user just authorized your app
+      getUserData();
+    }
+  }, {scope: 'email,public_profile', return_scopes: true});
+}, false);
 
 </script>

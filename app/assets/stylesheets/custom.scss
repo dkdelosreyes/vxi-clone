@@ -321,7 +321,7 @@ nav.fixed-top {
     padding: 125px 0;
   }
   &.section-jobs { 
-    background: $green url('info-bg.jpg') no-repeat center bottom; 
+    background: $green image-url('info-bg.jpg') no-repeat center bottom; 
     background-size: cover;
     padding: 60px 0;
     height: 100vh;

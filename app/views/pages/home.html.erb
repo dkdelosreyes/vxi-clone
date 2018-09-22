@@ -248,9 +248,9 @@ function scrollToTop(scrollDuration) {
 
 function getUserData() {
   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
-    $('#first_name').val(response.first_name);
-    $('#last_name').val(response.last_name);
-    console.log('getUserData');
+    $('#applicant_first_name').val(response.first_name);
+    $('#applicant_last_name').val(response.last_name);
+    console.log('getUserData', response);
   });
 }
 /* Commented out to remove localhost error */

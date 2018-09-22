@@ -200,39 +200,31 @@
   $(function(){
 
     /* Set the height of section-slider based on contents or window height */
-    var slider_contents_height = 0;
-    $('#section-slider #mainCarousel').each(function(){
-      slider_contents_height = Math.max(slider_contents_height, $(this).height() + $(this).position().top);
-    });
-    window_height = $(window).height();
-    section_slider_height = slider_contents_height > window_height ? slider_contents_height : window_height;
-    $('#section-slider').css('height', section_slider_height - 1);
+    // var slider_contents_height = 0;
+    // $('#section-slider #mainCarousel').each(function(){
+    //   slider_contents_height = Math.max(slider_contents_height, $(this).height() + $(this).position().top);
+    // });
+    // window_height = $(window).height();
+    // section_slider_height = slider_contents_height > window_height ? slider_contents_height : window_height;
+    // // $('#section-slider').css('height', section_slider_height - 1);
+    $('#section-slider').css('height', $('#section-slider #mainCarousel').height() - 1);
 
 
     // Function which adds the 'animated' class to any '.animatable' in view
     var doAnimations = function() {
-      console.log('doAnimations');
       // Calc current offset and get all animatables
       var offset = $(window).scrollTop() + $(window).height(),
           $animatables = $('.animatable');
-      console.log('offset', offset);
       // Unbind scroll handler if we have no animatables
       if ($animatables.length == 0) {
-        console.log('no animations');
         $(window).off('scroll', doAnimations);
       }
       
       // Check all animatables and animate them if necessary
       $animatables.each(function(i) {
          var $animatable = $(this);
-         // console.log('animatable', $animatable);
-         // console.log('$animatable.offset().top', $animatable.offset().top);
-         // console.log('$animatable.height()', $animatable.height());
         if (($animatable.offset().top) < offset) {
-          // delay = $animatable.data('delay') != undefined ? $animatable.data('delay')  : 0 ;
-          // console.log('delay', delay);
           $animatable.removeClass('animatable').addClass('animated');
-          // TODO: delay not working
         }
       });
 
@@ -241,18 +233,18 @@
     // Hook doAnimations on scroll, and trigger a scroll
     $(window).on('scroll', doAnimations);
     $(window).trigger('scroll');
-  });
+});
 
-  // Scroll to top animation
-  function scrollToTop(scrollDuration) {
-      var scrollStep = -window.scrollY / (scrollDuration / 15),
-        scrollInterval = setInterval(function(){
-        if ( window.scrollY != 0 ) {
-            window.scrollBy( 0, scrollStep );
-        }
-        else clearInterval(scrollInterval); 
-      },15);
-    }
+// Scroll to top animation
+function scrollToTop(scrollDuration) {
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+      scrollInterval = setInterval(function(){
+      if ( window.scrollY != 0 ) {
+          window.scrollBy( 0, scrollStep );
+      }
+      else clearInterval(scrollInterval); 
+    },15);
+  }
 
 function getUserData() {
   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
@@ -260,26 +252,26 @@ function getUserData() {
     $('#LastName').val(response.last_name);
   });
 }
- /* Commented out to remove localhost error */
-// window.fbAsyncInit = function() {
-//   //SDK loaded, initialize it
-//   FB.init({
-//     appId      : '929935887215359',
-//     xfbml      : true,
-//     version    : 'v2.8'
-//   });
-//  console.log('fbAsyncInit');
-//   //check user session and refresh it
-//   FB.getLoginStatus(function(response) {
-//     if (response.status === 'connected') {
-//       //user is authorized
-//       getUserData();
-//     } else {
-//       //user is not authorized
-//       console.log('please log in');
-//     }
-//   });
-// };
+/* Commented out to remove localhost error */
+window.fbAsyncInit = function() {
+  //SDK loaded, initialize it
+  FB.init({
+    appId      : '929935887215359',
+    xfbml      : true,
+    version    : 'v2.8'
+  });
+ console.log('fbAsyncInit');
+  //check user session and refresh it
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      //user is authorized
+      getUserData();
+    } else {
+      //user is not authorized
+      console.log('please log in');
+    }
+  });
+};
  
 //load the JavaScript SDK
 (function(d, s, id){

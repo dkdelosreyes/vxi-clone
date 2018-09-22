@@ -1,4 +1,7 @@
 class Applicant
+  require 'uri'
+  require 'net/http'
+  require 'json'
   include ActiveModel::Model
   attr_accessor :email, :user_phone_number, :first_name, :last_name, :location, :position, :education, :experience, :source_info
   
@@ -14,6 +17,38 @@ class Applicant
   validates :experience, presence: true
   validates :source_info, presence: true
 
+  # Call talkpush API
+  def talkpush_api(data)
+    details = {
+        api_key: "dbed2ab32d1e9f1453d1a321480debca",
+        api_secret: "a7281c8ff4ad9d0d78ae640d4c63b64c",
+        campaign_invitation: {
+          first_name: data['first_name'],
+          last_name: data['last_name'],
+          email: data['email'],
+          user_phone_number: data['user_phone_number'],
+          location: data['location'], 
+          position: data['position'], 
+          education: data['education'], 
+          experience: data['experience'], 
+          source_info: data['source_info']
+        }
+      }
+
+    url = URI("https://my.talkpush.com/api/talkpush_services/campaigns/4/campaign_invitations")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      @request = Net::HTTP::Post.new(url)
+      @request["Content-Type"] = 'application/json'
+      @request["Cache-Control"] = 'no-cache'
+
+      @request.body = data.to_json
+      response = http.request(@request) 
+      humanized_talkpush_msg(response.read_body) if valid_json?(response.read_body)
+  end
 
   # VALIDATORS
 
@@ -21,12 +56,11 @@ class Applicant
   def valid_json?(json)
       JSON.parse(json)
       return true
-    # rescue 
     rescue JSON::ParserError => e
       return false
   end
 
-  def talkpush(message) 
+  def humanized_talkpush_msg(message) 
     if JSON.parse(message)['error']
       I18n.t 'talkpush.duplicated'
     else
@@ -34,21 +68,13 @@ class Applicant
     end
   end
 
-  # Change a hash of errors to a human friendly format
-  def humanized_errors(errors)
-    full_message = ''
-    errors.each do |e|
-      full_message += e.first.humanize + ' ' + replace_last_occur(e.last.join(', '), ', ', ' and ') + '.<br>'
-    end
-    full_message.html_safe
-  end
-
   # Change ex. ["can't be blank", "is invalid"] to Can't be blank and is invalid
   def humanized_error(error)
-    # if( !error.blank? )
-      full_message = replace_last_occur(error.join(', '), ', ', ' and ') + '.'
-      full_message.capitalize.html_safe
-    # end
+    if(error.kind_of?(Array))
+    # full_message = error.first#replace_last_occur(error.join(', '), ', ', ' and ') + '.'
+    full_message = error.size > 1 ? replace_last_occur(error.join(', '), ', ', ' and ') + '.' : error.first
+    # full_message.capitalize.html_safe
+    end
   end
 
   def replace_last_occur(old_str, to_rep, rep_with)

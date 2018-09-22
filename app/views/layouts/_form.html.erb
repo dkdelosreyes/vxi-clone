@@ -17,12 +17,12 @@
   <div class="row">
     <div class="col">
       <label for="">First Name*</label>
-      <%= form.text_field :first_name, required: false %>
+      <%= form.text_field :first_name, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['first_name']) if flash.key?('errors') %></p>
     </div>
     <div class="col">
       <label for="">Last Name*</label>
-      <%= form.text_field :last_name, required: false %>
+      <%= form.text_field :last_name, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['last_name']) if flash.key?('errors') %></p>
     </div>
   </div>
@@ -30,12 +30,12 @@
   <div class="row">
     <div class="col">
       <label for="">Contact Number*</label>
-      <%= form.text_field :user_phone_number, required: false %>
+      <%= form.text_field :user_phone_number, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['user_phone_number']) if flash.key?('errors') %></p>
     </div>
     <div class="col">
       <label for="">Email Address</label>
-      <%= form.email_field :email, required: false %>
+      <%= form.email_field :email, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['email']) if flash.key?('errors') %></p>
     </div>
   </div>
@@ -43,7 +43,7 @@
   <div class="row">
     <!--<div class="col">-->
       <label for="">Which VXI site do you want to apply for?*</label>
-       <%= form.select(:location, [['North EDSA, Quezon City', 'North EDSA, Quezon City'], ['EDSA Buendia, Makati City', 'EDSA Buendia, Makati City']], required: false) %>
+       <%= form.select(:location, [['North EDSA, Quezon City', 'North EDSA, Quezon City'], ['EDSA Buendia, Makati City', 'EDSA Buendia, Makati City']], required: true) %>
        <p class="help"><%= @applicant.humanized_error(flash['errors']['location']) if flash.key?('errors') %></p>
      <!--  <select id="location" name="location">
         <option value=""></option>
@@ -61,7 +61,7 @@
   <div class="row">
     <!--<div class="col">-->
       <label for="">Which position are you applying for?*</label>
-       <%= form.select(:position, [['Sales Associate', 'Sales Associate'], ['Tech Support Associate', 'Tech Support Associate']], required: false) %>
+       <%= form.select(:position, [['Sales Associate', 'Sales Associate'], ['Tech Support Associate', 'Tech Support Associate']], required: true) %>
        <p class="help"><%= @applicant.humanized_error(flash['errors']['position']) if flash.key?('errors') %></p>
      <!--  <select id="position" name="position">
         <option value=""></option><option value="Sales Associate">Sales Associate</option><option value="Tech Support Associate">Tech Support Associate</option><option value="Customer Service Associate">Customer Service Associate</option>
@@ -72,7 +72,7 @@
   <div class="row">
     <!--<div class="col">-->
       <label for="">What is your highest educational attainment?*</label>
-      <%= form.select(:education, [['High school graduate', 'High school graduate'], ['K-12 Graduate', 'K-12 Graduate']], required: false) %>
+      <%= form.select(:education, [['High school graduate', 'High school graduate'], ['K-12 Graduate', 'K-12 Graduate']], required: true) %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['education']) if flash.key?('errors') %></p>
       <!-- <select id="education" name="education">
         <option value=""></option><option value="High school graduate">High school graduate</option><option value="K-12 Graduate">K-12 Graduate</option><option value="College graduate">College graduate</option><option value="Undergrad below 2 years">Undergrad below 2 years</option><option value="Undergrad 2 years and up">Undergrad 2 years and up</option><option value="Post Graduate">Post Graduate</option>
@@ -83,7 +83,7 @@
   <div class="row">
     <!--<div class="col">-->
       <label for="">Do you have call center experience?*</label>
-      <%= form.select(:experience, [['Yes, 1-5 months', 'Yes, 1-5 months'], ['Yes, 6-11 months', 'Yes, 6-11 months']], required: false) %>
+      <%= form.select(:experience, [['Yes, 1-5 months', 'Yes, 1-5 months'], ['Yes, 6-11 months', 'Yes, 6-11 months']], required: true) %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['experience']) if flash.key?('errors') %></p>
       <!-- <select id="experience" name="experience">
         <option value=""></option><option value="None">None</option><option value="Yes, 1-5 months">Yes, 1-5 months</option><option value="Yes, 6-11 months">Yes, 6-11 months</option><option value="Yes, 12-23 months">Yes, 12-23 months</option><option value="Yes, 24 months and above">Yes, 24 months and above</option>
@@ -94,7 +94,7 @@
   <div class="row">
     <!--<div class="col">-->
       <label for="">How did you learn about our job opening?*</label>
-      <%= form.select(:source_info, [['Social Media', 'Social Media'], ['Online Job Portals', 'Online Job Portals']], required: false) %>
+      <%= form.select(:source_info, [['Social Media', 'Social Media'], ['Online Job Portals', 'Online Job Portals']], required: true) %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['source_info']) if flash.key?('errors') %></p>
      <!--  <select id="source_info" name="source_info" class="col-lg-6">
         <option value=""></option><option value="Social Media">Social Media</option><option value="Online Job Portals">Online Job Portals</option><option value="Email">Email</option><option value="School Events">School Events</option><option value="Referral">Referral</option><option value="Outdoor Advertising">Outdoor Advertising</option><option value="Print Advertising">Print Advertising</option>
@@ -105,7 +105,7 @@
   <div class="form-group">
     <div class="form-check">
       <!-- <input class="form-check-input" type="checkbox" id="gridCheck"> -->
-      <%= form.check_box :terms, class: 'form-check-input', required: false, checked: true%>
+      <%= form.check_box :terms, class: 'form-check-input', required: true, checked: true%>
       <label class="form-check-label" for="gridCheck">
         I have agree to the <a href="http://vxi-family.com/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="http://www.vxi-family.com/terms-conditions/" target="_blank">Terms and Conditions.</a>
       </label>

@@ -45,7 +45,7 @@ class Applicant
       @request["Content-Type"] = 'application/json'
       @request["Cache-Control"] = 'no-cache'
 
-      @request.body = data.to_json
+      @request.body = details.to_json
       response = http.request(@request) 
       humanized_talkpush_msg(response.read_body) if valid_json?(response.read_body)
   end
@@ -71,9 +71,7 @@ class Applicant
   # Change ex. ["can't be blank", "is invalid"] to Can't be blank and is invalid
   def humanized_error(error)
     if(error.kind_of?(Array))
-    # full_message = error.first#replace_last_occur(error.join(', '), ', ', ' and ') + '.'
-    full_message = error.size > 1 ? replace_last_occur(error.join(', '), ', ', ' and ') + '.' : error.first
-    # full_message.capitalize.html_safe
+      full_message = error.size > 1 ? replace_last_occur(error.join(', '), ', ', ' and ') + '.' : error.first
     end
   end
 

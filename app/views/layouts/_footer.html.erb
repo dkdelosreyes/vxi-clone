@@ -1,0 +1,44 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <%= link_to root_path do %><%= image_tag 'logo.png', alt: 'VXI Family', class: 'logo' %><% end %>
+      </div>
+      <div class="col-6 centers">
+        <h3>Visit our Recruitment Centers</h3>
+
+        <ul>
+          <li><p><span>Makati</span>G/F SM Cyber Two, EDSA Buendia, Makati City</p></li>
+          <li><p><span>North Edsa</span>G/F Panorama TechnoCenter, 1029 EDSA, Quezon City</p></li>
+          <li><p><span>MOA Complex</span>G/F Five Ecom Center, Pacific Drive, MOA Complex, Pasay City</p></li>
+          <li><p><span>Robinsons Lanang</span>2/F Robinsons Cybergate, Lanang, Davao City</p></li>
+          <li><p><span>SM Ecoland</span>2/F Annex SM City Davao, Ecoland, Davao City</p></li>
+          <li><p><span>Felcris Centrale</span>G/F Felcris Centrale Mall, Quimpo Boulevard, Talomo, Davao City</p></li>
+          <li><p><span>SM City Clark</span>G/F SM City Clark Tech Hub Bldg. 6, M.A. Roxas Highway, Malabanias Angeles City</p></li>
+        </ul>
+      </div>
+      <div class="col-3 socials">
+        <ul>
+          <li>
+            <a href="mailto:careersph@vxi.com">
+              <%= image_tag 'socials_envelope.png', alt: 'Email' %><span>careersph@vxi.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:(+63) 917 777 5555">
+              <%= image_tag 'socials_mobile.png', alt: 'Mobile' %>
+              <%= image_tag 'socials_viber.png', alt: 'Viber' %>
+              <span>(+63) 917 777 5555</span>
+            </a>
+          </li>
+          <li>
+            <%= link_to image_tag("socials_facebook.png", alt: "Facebook"), 'https://www.facebook.com/VXIPH' %>  
+            <%= link_to image_tag("socials_instagram.png", alt: "Instagram"), 'https://Instagram.com/vxiph' %>  
+            <%= link_to image_tag("socials_twitter.png", alt: "Twitter"), 'https://twitter.com/vxiph' %>  
+          </li>
+        </ul>
+        <%= link_to 'Privacy Policy', privacy_policy_path %>
+      </div>
+    </div>
+  <!-- <button id="BtnFB" class="btn-fb">Facebook Login</button> -->
+</footer>

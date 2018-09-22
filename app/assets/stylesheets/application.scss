@@ -104,6 +104,26 @@ $alpha-p3: .3;
   -o-animation-name: $name;
   animation-name: $name;
 }
+@mixin animation-delay($delay) {
+  -webkit-animation-delay: #{$delay};
+  -moz-animation-delay: #{$delay};
+  -o-animation-delay: #{$delay};
+  animation-delay: #{$delay};
+}
+@mixin keyframes( $animation ) {
+  @-webkit-keyframes #{$animation} {
+      @content;
+  }
+  @-moz-keyframes #{$animation} {
+      @content;
+  }
+  @-o-keyframes #{$animation} {
+      @content;
+  }
+  @keyframes #{$animation} {
+      @content;
+  }
+}
 
 /* Backgrounds */
 .bg-orange { background-color: $orange; }
@@ -162,6 +182,46 @@ $alpha-p3: .3;
 .mw-38 { max-width: 38px; }
 .mw-90 { max-width: 90px; }
   
+/* HEADER ======================================================================================== */
+.navbar-header {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  a { display: inline-block; }
+  img {
+    max-width: 250px;
+  }
+}
+nav.fixed-top {
+  right: 15%;
+  left: auto;
+  padding: 0;
+  .navbar-nav {
+    float: right;
+    .nav-item {
+      background-color: $white;
+      &:nth-child(even){
+        border-right: 1px solid $gray-light;
+      }
+    }
+    
+    a {
+      color: #353535;
+      text-decoration: none;
+      padding: 15px 23px;
+      display: inline-block;
+      font-family: Flama-Basic, Helvetica, sans-serif;
+    }
+    .nav-item-diagonal {
+      width: 0;
+      height: 0;
+      border-top: 54px solid $white;
+      border-left: 37px solid transparent;
+    }
+  }
+}
+
 /* Section Slider ======================================================================================== */
 #section-slider {
 	height: 500px;
@@ -177,42 +237,7 @@ $alpha-p3: .3;
 	.sec1-contents {
 		position: relative;
     z-index: 1;
-		.navbar-header {
-			a { display: inline-block; }
-			img {
-				max-width: 250px;
-	    	margin-left: 10%;
-			}
-		}
-		nav {
-		  right: 15%;
-		  left: auto;
-		  padding: 0;
-		  .navbar-nav {
-		    float: right;
-		    .nav-item {
-		    	background-color: $white;
-		    	&:nth-child(even){
-		    		border-right: 1px solid $gray-light;
-		    	}
-		    }
-		    
-		    a {
-		    	color: #353535;
-			    text-decoration: none;
-			    padding: 15px 23px;
-			    display: inline-block;
-			    font-family: Flama-Basic, Helvetica, sans-serif;
-		    }
-		    .nav-item-diagonal {
-		    	width: 0;
-			    height: 0;
-			    border-top: 54px solid $white;
-    			border-left: 37px solid transparent;
-		    }
-			}
-		}
-		
+    padding-top: 160px;
 	}
 }
 
@@ -313,6 +338,65 @@ $alpha-p3: .3;
 
 }
 
+/* Blogs ====================================================================== */
+.section-blogs {
+  background-color: $gray-dark;
+  padding-top: 160px;
+  h1 {
+    color: $orange;
+    text-align: center;
+    font-family: 'DkLemonYellowSun',"Arial","Helvetica","sans-serif";
+    font-size: 64px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  h2 {
+    padding: 0;
+    a {
+      color: $yellow;
+      font-family: 'DkLemonYellowSun',"Arial","Helvetica","sans-serif";
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .blogs {
+    padding: 55px 0 80px 50px;
+    font-family: 'Flama-Basic',"Arial","Helvetica","sans-serif";
+    color: $white;
+    .row {
+      padding-bottom: 30px;
+      border-bottom: 1px solid $gray-light;
+      padding-top: 30px;
+      &:last-child { border: 0; }
+    }
+    .description { padding-left: 55px; }
+    .thumbnail img {
+      max-width: 280px;
+      width: 100%;
+    }
+    .info {
+      font-size: 14px;
+      padding-bottom: 15px;
+      .date{ padding-right: 10px; }
+      .author { color: $orange; }
+    }
+    p {
+      font-size: 18px;
+      a {
+        color: $yellow;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+  }
+}
+
+
 /* FOOTER ================================================================================== */
 footer {
   font-family: 'Flama-Basic';
@@ -390,41 +474,7 @@ footer {
 }
 
 /* CSS Animations */
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-20px);
-  } 100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-
-@-moz-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -moz-transform: translateX(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    -moz-transform: translateX(0);
-  }
-}
-
-@-o-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -o-transform: translateX(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    -o-transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
+@include keyframes( 'fadeInRight' ) {
   0% {
     opacity: 0;
     transform: translateX(-20px);
@@ -434,8 +484,7 @@ footer {
     transform: translateX(0);
   }
 }
-
-@-webkit-keyframes fadeInLeft {
+@include keyframes( 'fadeInLeft' ) {
   0% {
     opacity: 0;
     -webkit-transform: translateX(0px);
@@ -444,43 +493,7 @@ footer {
     -webkit-transform: translateX(-20px);
   }
 }
-
-@-moz-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -moz-transform: translateX(0px);
-  }
-
-  100% {
-    opacity: 1;
-    -moz-transform: translateX(-20px);
-  }
-}
-
-@-o-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -o-transform: translateX(0px);
-  }
-
-  100% {
-    opacity: 1;
-    -o-transform: translateX(-20px);
-  }
-}
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(0px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-20px);
-  }
-}
-
-@-webkit-keyframes fadeInUp {
+@include keyframes( 'fadeInUp' ) {
   0% {
     opacity: 0;
     -webkit-transform: translateY(20px);
@@ -490,64 +503,20 @@ footer {
   }
 }
 
-@-moz-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -moz-transform: translateY(20px);
+.animated {
+  &.animationDelay{
+    @include animation-delay('.4s')
   }
-
-  100% {
-    opacity: 1;
-    -moz-transform: translateY(0);
+  &.fadeInRight {
+    @include animation-name(fadeInRight);
   }
-}
-
-@-o-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -o-transform: translateY(20px);
+  &.fadeInLeft {
+    @include animation-name(fadeInLeft);
   }
-
-  100% {
-    opacity: 1;
-    -o-transform: translateY(0);
+  &.fadeInUp {
+    @include animation-name(fadeInUp);
   }
 }
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animated.animationDelay{
-  animation-delay:.4s;
-  -webkit-animation-delay:.4s;
-}
-.animated.animationDelayMed{
-  animation-delay:1.2s;
-  -webkit-animation-delay:1.2s;
-}
-.animated.animationDelayLong{
-  animation-delay:1.6s;
-  -webkit-animation-delay:1.6s;
-}
-.animated.fadeInRight {
-  @include animation-name(fadeInRight);
-}
-.animated.fadeInLeft {
-  @include animation-name(fadeInLeft);
-}
-.animated.fadeInUp {
-  @include animation-name(fadeInUp);
-}
-
 
 /* Bootstrap overrides */
 @media screen and (min-width: 1200px){
@@ -555,6 +524,11 @@ footer {
       max-width: 1054px;
   }
 }
+
+
+
+
+
 
 
  /*.navbar-toggler:focus,

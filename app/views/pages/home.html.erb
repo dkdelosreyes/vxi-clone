@@ -19,48 +19,7 @@
     </div>
   
     <div class="sec1-contents">
-      <header>
-        <div class="container">
-          <div class="navbar-header"><a href=""><%= image_tag 'vxi-logo.png' %></a></div>
-          
-          <nav class='navbar fixed-top' >
-            <ul class="navbar-nav bd-navbar-nav flex-row">
-              <li class="nav-item-diagonal"></li>
-              <li class="nav-item"><a href="">Home</a></li>
-              <li class="nav-item"><a href="/blog">Blog</a></li>
-            </ul>
-          </nav>
-          
-          <!--http://getbootstrap.com/docs/4.1/examples/navbar-static/-->
-          <!--<nav class="navbar fixed-top navbar-toggleable-sm bg-faded">-->
-       <!--     <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#collapsingNavbar">-->
-       <!--         <span> </span>-->
-       <!--         <span> </span>-->
-       <!--         <span> </span>-->
-       <!--     </button>-->
-       <!--     <div class="collapse navbar-collapse" id="collapsingNavbar">-->
-       <!--         <ul class="nav navbar-nav">-->
-       <!--             <li class="nav-item">-->
-       <!--                 <a class="nav-link" href="#">About</a>-->
-       <!--             </li>-->
-       <!--             <li class="nav-item">-->
-       <!--                 <a class="nav-link" href="#">Themes</a>-->
-       <!--             </li>-->
-       <!--             <li class="nav-item">-->
-       <!--                 <a class="nav-link" href="#">Contact</a>-->
-       <!--             </li>-->
-       <!--             <li class="nav-item dropdown">-->
-       <!--                 <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">Pages</a>-->
-       <!--                 <div class="dropdown-menu">-->
-       <!--                     <a class="dropdown-item" href="#">Blog</a>-->
-       <!--                     <a class="dropdown-item" href="#">Gallery</a>-->
-       <!--                 </div>-->
-       <!--             </li>-->
-       <!--         </ul>-->
-       <!--     </div>-->
-          <!--</nav>-->
-        </div>
-      </header>
+      
       
       <div class="row">
         <div class="container">
@@ -236,54 +195,6 @@
     </div>
   </div>
 </section>
-
-<footer>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-3">
-        <%= link_to root_path do %><%= image_tag 'logo.png', alt: 'VXI Family', class: 'logo' %><% end %>
-      </div>
-      <div class="col-6 centers">
-        <h3>Visit our Recruitment Centers</h3>
-
-        <ul>
-          <li><p><span>Makati</span>G/F SM Cyber Two, EDSA Buendia, Makati City</p></li>
-          <li><p><span>North Edsa</span>G/F Panorama TechnoCenter, 1029 EDSA, Quezon City</p></li>
-          <li><p><span>MOA Complex</span>G/F Five Ecom Center, Pacific Drive, MOA Complex, Pasay City</p></li>
-          <li><p><span>Robinsons Lanang</span>2/F Robinsons Cybergate, Lanang, Davao City</p></li>
-          <li><p><span>SM Ecoland</span>2/F Annex SM City Davao, Ecoland, Davao City</p></li>
-          <li><p><span>Felcris Centrale</span>G/F Felcris Centrale Mall, Quimpo Boulevard, Talomo, Davao City</p></li>
-          <li><p><span>SM City Clark</span>G/F SM City Clark Tech Hub Bldg. 6, M.A. Roxas Highway, Malabanias Angeles City</p></li>
-        </ul>
-      </div>
-      <div class="col-3 socials">
-        <ul>
-          <li>
-            <a href="mailto:careersph@vxi.com">
-              <%= image_tag 'socials_envelope.png', alt: 'Email' %><span>careersph@vxi.com</span>
-            </a>
-          </li>
-          <li>
-            <a href="tel:(+63) 917 777 5555">
-              <%= image_tag 'socials_mobile.png', alt: 'Mobile' %>
-              <%= image_tag 'socials_viber.png', alt: 'Viber' %>
-              <span>(+63) 917 777 5555</span>
-            </a>
-          </li>
-          <li>
-            <%= link_to image_tag("socials_facebook.png", alt: "Facebook"), 'https://www.facebook.com/VXIPH' %>  
-            <%= link_to image_tag("socials_instagram.png", alt: "Instagram"), 'https://Instagram.com/vxiph' %>  
-            <%= link_to image_tag("socials_twitter.png", alt: "Twitter"), 'https://twitter.com/vxiph' %>  
-          </li>
-        </ul>
-        <%= link_to 'Privacy Policy', privacy_policy_path %>
-      </div>
-    </div>
-
-
-  <!-- <button id="BtnFB" class="btn-fb">Facebook Login</button> -->
-</footer>
 
 <script>
   $(function(){

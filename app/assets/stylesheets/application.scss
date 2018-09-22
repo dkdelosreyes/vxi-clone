@@ -14,13 +14,24 @@
 // 		font-weight: normal;
 // 		font-style: normal;
 // }
+// @font-face {
+//     font-family: "DkLemonYellowSun";
+//     src: fonts_url("/assets/dk_lemon_yellow_sun-webfont.eot"); 
+//     src: fonts_url("/assets/dk_lemon_yellow_sun-webfont.eot") format("eot"), 
+//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), 
+//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.woff") format("woff"), 
+//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.ttf") format("truetype"), 
+//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
+//     font-weight: normal;
+//     font-style: normal;
+// }
 @font-face {
     font-family: "DkLemonYellowSun";
-    src:  fonts_url("fonts/dk_lemon_yellow_sun-webfont.eot"); 
-    src:  fonts_url("fonts/dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), 
-          fonts_url("fonts/dk_lemon_yellow_sun-webfont.woff") format("woff"), 
-          fonts_url("fonts/dk_lemon_yellow_sun-webfont.ttf") format("truetype"), 
-          fonts_url("fonts/dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
+    src:  fonts_url("dk_lemon_yellow_sun-webfont.eot"); 
+    src:  fonts_url("dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), 
+          fonts_url("dk_lemon_yellow_sun-webfont.woff") format("woff"), 
+          fonts_url("dk_lemon_yellow_sun-webfont.ttf") format("truetype"), 
+          fonts_url("dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
     font-weight: normal;
     font-style: normal;
 }

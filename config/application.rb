@@ -21,7 +21,9 @@ module VxiClone
     # config.assets.paths << Rails.root.join('app/assets/fonts')
     
     # # Precompile additional assets
-    config.assets.precompile += %w( fonts.css )
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+    # config.assets.precompile += %w( fonts.css )
     # config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.autoload_paths = %W(#{config.root}/app/validators)
   end

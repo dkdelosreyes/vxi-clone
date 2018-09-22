@@ -3,71 +3,38 @@
 /* Generic ==================================================================================================== */
 
 /* Fonts */
-// @font-face {
-//     font-family: "DkLemonYellowSun";
-//     src: url("/assets/dk_lemon_yellow_sun-webfont.eot"); 
-//     src: url("/assets/dk_lemon_yellow_sun-webfont.eot") format("eot"), 
-//       url("/assets/dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), 
-//       url("/assets/dk_lemon_yellow_sun-webfont.woff") format("woff"), 
-//       url("/assets/dk_lemon_yellow_sun-webfont.ttf") format("truetype"), 
-//       url("/assets/dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
-// 		font-weight: normal;
-// 		font-style: normal;
-// }
-// @font-face {
-//     font-family: "DkLemonYellowSun";
-//     src: fonts_url("/assets/dk_lemon_yellow_sun-webfont.eot"); 
-//     src: fonts_url("/assets/dk_lemon_yellow_sun-webfont.eot") format("eot"), 
-//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), 
-//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.woff") format("woff"), 
-//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.ttf") format("truetype"), 
-//       fonts_url("/assets/dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
-//     font-weight: normal;
-//     font-style: normal;
-// }
 @font-face {
     font-family: "DkLemonYellowSun";
     src:  font_url("dk_lemon_yellow_sun-webfont.eot"); 
-    src:  font_url("dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), 
-          font_url("dk_lemon_yellow_sun-webfont.woff") format("woff"), 
-          font_url("dk_lemon_yellow_sun-webfont.ttf") format("truetype"), 
-          font_url("dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
+    src:  font_url("dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"),font_url("dk_lemon_yellow_sun-webfont.woff") format("woff"), font_url("dk_lemon_yellow_sun-webfont.ttf") format("truetype"), font_url("dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "Flama-Basic";
-    /*Uncomment for heroku testing*/
-    /*src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");*/
-    // src: font-url("flama-basic-webfont.eot") format("eot"), font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
-    src: font-url("/assets/flama-light-webfont.eot") format("eot"), font-url("/assets/flama-light-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-light-webfont.woff") format("woff"), font-url("/assets/flama-light-webfont.ttf") format("truetype"), font-url("/assets/flama-light-webfont.svg#DkLemonYellowSun") format("svg");
+    src: font-url("flama-basic-webfont.eot") format("eot");
+    src: font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
     font-weight: 300;
     font-style: normal;
 }
 @font-face {
     font-family: "Flama-Basic";
-    /*Uncomment for heroku testing*/
-    /*src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");*/
-    // src: font-url("flama-basic-webfont.eot") format("eot"), font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
-    src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.woff") format("woff"), font-url("/assets/flama-basic-webfont.ttf") format("truetype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
-		font-weight: 400;
+    src: font-url("flama-basic-webfont.eot") format("eot");
+    src: font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
+    font-weight: 400;
 		font-style: normal;
 }
 @font-face {
     font-family: "Flama-Basic";
-    /*Uncomment for heroku testing*/
-    /*src: font-url("/assets/flama-medium-webfont.eot") format("eot"), font-url("/assets/flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-medium-webfont.svg#DkLemonYellowSun") format("svg");*/
-    // src: font-url("flama-medium-webfont.eot") format("eot"), font-url("flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-medium-webfont.woff") format("woff"), font-url("flama-medium-webfont.ttf") format("truetype"), font-url("flama-medium-webfont.svg#DkLemonYellowSun") format("svg");
-    src: font-url("/assets/flama-medium-webfont.eot") format("eot"), font-url("/assets/flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-medium-webfont.woff") format("woff"), font-url("/assets/flama-medium-webfont.ttf") format("truetype"), font-url("/assets/flama-medium-webfont.svg#DkLemonYellowSun") format("svg");
+    src: font-url("flama-medium-webfont.eot") format("eot");
+    src: font-url("flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-medium-webfont.woff") format("woff"), font-url("flama-medium-webfont.ttf") format("truetype"), font-url("flama-medium-webfont.svg#DkLemonYellowSun") format("svg");
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: "Flama-Basic";
-    /*Uncomment for heroku testing*/
-    /*src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");*/
-    // src: font-url("flama-basic-webfont.eot") format("eot"), font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
-    src: font-url("/assets/flama-bold-webfont.eot") format("eot"), font-url("/assets/flama-bold-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-bold-webfont.woff") format("woff"), font-url("/assets/flama-bold-webfont.ttf") format("truetype"), font-url("/assets/flama-bold-webfont.svg#DkLemonYellowSun") format("svg");
+    src: font-url("flama-basic-webfont.eot") format("eot");
+    src: font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
     font-weight: 700;
     font-style: normal;
 }

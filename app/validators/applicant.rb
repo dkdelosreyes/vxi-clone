@@ -16,21 +16,21 @@ class Applicant
 
 
   # VALIDATORS
-  # protected
+
   # Check if valid json
   def valid_json?(json)
       JSON.parse(json)
       return true
-    rescue 
-    # rescue JSON::ParserError => e
+    # rescue 
+    rescue JSON::ParserError => e
       return false
   end
 
   def talkpush(message) 
     if JSON.parse(message)['error']
-      t 'duplicated'
+      I18n.t 'talkpush.duplicated'
     else
-      t 'success'
+      I18n.t 'talkpush.success'
     end
   end
 
@@ -45,8 +45,10 @@ class Applicant
 
   # Change ex. ["can't be blank", "is invalid"] to Can't be blank and is invalid
   def humanized_error(error)
-    full_message = replace_last_occur(error.join(', '), ', ', ' and ') + '.'
-    full_message.capitalize.html_safe
+    # if( !error.blank? )
+      full_message = replace_last_occur(error.join(', '), ', ', ' and ') + '.'
+      full_message.capitalize.html_safe
+    # end
   end
 
   def replace_last_occur(old_str, to_rep, rep_with)

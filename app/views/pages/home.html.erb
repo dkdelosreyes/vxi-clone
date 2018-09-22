@@ -195,7 +195,7 @@
     </div>
   </div>
 </section>
-
+<button id="BtnFB2" class="btn-fb">Facebook Login</button>
 <script>
   $(function(){
 
@@ -250,6 +250,7 @@ function getUserData() {
   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
     $('#first_name').val(response.first_name);
     $('#last_name').val(response.last_name);
+    console.log('getUserData');
   });
 }
 /* Commented out to remove localhost error */

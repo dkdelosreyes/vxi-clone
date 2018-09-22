@@ -28,7 +28,7 @@
             <%= form_with model: @applicant, url: signup_vxi_path, remote: true, class: 'form-signup' do |form| %>
               <div class="row">
                 <div class="col">
-                  <a href="" class="btn-fb" id="BtnFBdummy">Sign Up with Facebook</a>
+                  <a href="" class="btn-fb" id="BtnFB">Sign Up with Facebook</a>
                   <!-- <button id="BtnFB" class="btn-fb">Sign Up with Facebook</button> -->
                   <div class="help-info">Or fill up this form</div>
                 </div>
@@ -237,14 +237,14 @@
 
 // Scroll to top animation
 function scrollToTop(scrollDuration) {
-    var scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function(){
-      if ( window.scrollY != 0 ) {
-          window.scrollBy( 0, scrollStep );
-      }
-      else clearInterval(scrollInterval); 
-    },15);
-  }
+  var scrollStep = -window.scrollY / (scrollDuration / 15),
+    scrollInterval = setInterval(function(){
+    if ( window.scrollY != 0 ) {
+        window.scrollBy( 0, scrollStep );
+    }
+    else clearInterval(scrollInterval); 
+  },15);
+}
 
 function getUserData() {
   FB.api('/me', {fields: 'first_name, last_name'}, function(response) {

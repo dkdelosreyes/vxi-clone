@@ -28,7 +28,8 @@
             <%= form_with model: @applicant, url: signup_vxi_path, remote: true, class: 'form-signup' do |form| %>
               <div class="row">
                 <div class="col">
-                  <a href="" class="btn-fb" id="BtnFB">Sign Up with Facebook</a>
+                  <button class="btn-fb" id="BtnFB">Sign Up with Facebook</button>
+                  <!-- <a href="" class="btn-fb" id="BtnFB">Sign Up with Facebook</a> -->
 
                   <script>
                     function getUserData() {
@@ -79,15 +80,7 @@
                     }, {scope: 'email,public_profile', return_scopes: true});
                   }, false);
 
-                  document.getElementById('BtnFB2').addEventListener('click', function() {
-                    //do the login
-                    FB.login(function(response) {
-                      if (response.authResponse) {
-                        //user just authorized your app
-                        getUserData();
-                      }
-                    }, {scope: 'email,public_profile', return_scopes: true});
-                  }, false);
+                 
                   </script>
                   <!-- <button id="BtnFB" class="btn-fb">Sign Up with Facebook</button> -->
                   <div class="help-info">Or fill up this form</div>
@@ -354,14 +347,14 @@ function scrollToTop(scrollDuration) {
 //   }, {scope: 'email,public_profile', return_scopes: true});
 // }, false);
 
-// document.getElementById('BtnFB2').addEventListener('click', function() {
-//   //do the login
-//   FB.login(function(response) {
-//     if (response.authResponse) {
-//       //user just authorized your app
-//       getUserData();
-//     }
-//   }, {scope: 'email,public_profile', return_scopes: true});
-// }, false);
+document.getElementById('BtnFB2').addEventListener('click', function() {
+  //do the login
+  FB.login(function(response) {
+    if (response.authResponse) {
+      //user just authorized your app
+      getUserData();
+    }
+  }, {scope: 'email,public_profile', return_scopes: true});
+}, false);
 
 </script>

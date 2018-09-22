@@ -1,6 +1,8 @@
 @import "bootstrap";
 
 /* Generic ==================================================================================================== */
+
+/* Fonts */
 @font-face {
     font-family: "DkLemonYellowSun";
     src: url("/assets/dk_lemon_yellow_sun-webfont.eot") format("eot"), url("/assets/dk_lemon_yellow_sun-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/dk_lemon_yellow_sun-webfont.woff") format("woff"), url("/assets/dk_lemon_yellow_sun-webfont.ttf") format("truetype"), url("/assets/dk_lemon_yellow_sun-webfont.svg#DkLemonYellowSun") format("svg");
@@ -8,14 +10,43 @@
 		font-style: normal;
 }
 @font-face {
-    font-family: Flama-Basic;
+    font-family: "Flama-Basic";
     /*Uncomment for heroku testing*/
     /*src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");*/
+    // src: font-url("flama-basic-webfont.eot") format("eot"), font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
+    src: font-url("/assets/flama-light-webfont.eot") format("eot"), font-url("/assets/flama-light-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-light-webfont.woff") format("woff"), font-url("/assets/flama-light-webfont.ttf") format("truetype"), font-url("/assets/flama-light-webfont.svg#DkLemonYellowSun") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Flama-Basic";
+    /*Uncomment for heroku testing*/
+    /*src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");*/
+    // src: font-url("flama-basic-webfont.eot") format("eot"), font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
     src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.woff") format("woff"), font-url("/assets/flama-basic-webfont.ttf") format("truetype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
-		font-weight: normal;
+		font-weight: 400;
 		font-style: normal;
 }
+@font-face {
+    font-family: "Flama-Basic";
+    /*Uncomment for heroku testing*/
+    /*src: font-url("/assets/flama-medium-webfont.eot") format("eot"), font-url("/assets/flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-medium-webfont.svg#DkLemonYellowSun") format("svg");*/
+    // src: font-url("flama-medium-webfont.eot") format("eot"), font-url("flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-medium-webfont.woff") format("woff"), font-url("flama-medium-webfont.ttf") format("truetype"), font-url("flama-medium-webfont.svg#DkLemonYellowSun") format("svg");
+    src: font-url("/assets/flama-medium-webfont.eot") format("eot"), font-url("/assets/flama-medium-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-medium-webfont.woff") format("woff"), font-url("/assets/flama-medium-webfont.ttf") format("truetype"), font-url("/assets/flama-medium-webfont.svg#DkLemonYellowSun") format("svg");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Flama-Basic";
+    /*Uncomment for heroku testing*/
+    /*src: font-url("/assets/flama-basic-webfont.eot") format("eot"), font-url("/assets/flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-basic-webfont.svg#DkLemonYellowSun") format("svg");*/
+    // src: font-url("flama-basic-webfont.eot") format("eot"), font-url("flama-basic-webfont.eot?#iefix") format("embedded-opentype"), font-url("flama-basic-webfont.woff") format("woff"), font-url("flama-basic-webfont.ttf") format("truetype"), font-url("flama-basic-webfont.svg#DkLemonYellowSun") format("svg");
+    src: font-url("/assets/flama-bold-webfont.eot") format("eot"), font-url("/assets/flama-bold-webfont.eot?#iefix") format("embedded-opentype"), font-url("/assets/flama-bold-webfont.woff") format("woff"), font-url("/assets/flama-bold-webfont.ttf") format("truetype"), font-url("/assets/flama-bold-webfont.svg#DkLemonYellowSun") format("svg");
+    font-weight: 700;
+    font-style: normal;
+}
 
+/* Colors and Alpha */
 $white: #fff;
 $yellow: #FCEE18;
 $pink: #d41c65;
@@ -23,10 +54,14 @@ $gray-light: #ccc;
 $blue-light: #3b5898;
 $blue-dark: #143884;
 $black: #000;
-
+$gray-dark: #353535;
+$gray-medium: #333;
+$orange: #ff5a00;
+$green: #afb803;
 $alpha-p2: .2;
 $alpha-p3: .3;
 
+/* Mixins */
 @mixin box-shadow($top, $right, $bottom, $left, $bg) {
 	-webkit-box-shadow: $top $right $bottom $left $bg;
   box-shadow: $top $right $bottom $left $bg;
@@ -42,20 +77,63 @@ $alpha-p3: .3;
   background: linear-gradient(to bottom, $color-start 0%, $color-stop 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-start', endColorstr='$color-stop', GradientType=0 );
 }
+@mixin animation-play($state) {
+  -webkit-animation-play-state: $state;   
+  -moz-animation-play-state: $state;     
+  -ms-animation-play-state: $state;
+  -o-animation-play-state: $state;   
+  animation-play-state: $state; 
+}
+@mixin animation-duration($time) {
+  -webkit-animation-duration: $time;   
+  -moz-animation-duration: $time;     
+  -ms-animation-duration: $time;
+  -o-animation-duration: $time;   
+  animation-duration: $time; 
+}
+@mixin animation-fill($mode) {
+  -webkit-animation-fill-mode: $mode;   
+  -moz-animation-fill-mode: $mode;     
+  -ms-animation-fill-mode: $mode;
+  -o-animation-fill-mode: $mode;   
+  animation-fill-mode: $mode; 
+}
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
 
-.btn-yellow {
+/* Backgrounds */
+.bg-orange { background-color: $orange; }
+.bg-green { background-color: $green; }
+
+/* Buttons */
+.btn-vxi {
   background-color: $yellow;
-  border: 0;
-  color: $pink;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 7px 30px;
   text-transform: uppercase;
+  border: 0;
+  display: inline-block;
   @include box-shadow(8px, 10px, 0, 0, rgba($black, $alpha-p2));
-  &:hover {
-    box-shadow: none;
-    transition: box-shadow 0.3s;
+  &.btn-submit {
+    color: $pink;
+    font: bold 20px Arial;
+    padding: 10px 30px;
+    &:hover {
+      box-shadow: none;
+      transition: box-shadow 0.5s ease;
+    }
+  }
+  &.btn-details {
+    color: $orange;
+    padding: 10px 30px;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 400;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 .btn-fb {
@@ -78,8 +156,13 @@ $alpha-p3: .3;
   	@include background-fb($blue-light, $blue-light);
   }
 }
+
+/* Sizing, Spacing */
+.mw-50 { max-width: 50px; }
+.mw-38 { max-width: 38px; }
+.mw-90 { max-width: 90px; }
   
-/* Section Slider ======================================================= */
+/* Section Slider ======================================================================================== */
 #section-slider {
 	height: 500px;
 	#mainCarousel {
@@ -93,6 +176,7 @@ $alpha-p3: .3;
 	}
 	.sec1-contents {
 		position: relative;
+    z-index: 1;
 		.navbar-header {
 			a { display: inline-block; }
 			img {
@@ -132,17 +216,18 @@ $alpha-p3: .3;
 	}
 }
 
-/* FORM */
+/* FORM ====================================================================================================== */
 .form-signup {
-	padding-left: 57px;
-	font-family: Flama-Basic;
+	padding-left: 20px;
+	font-family: 'Flama-Basic';
+  max-width: 410px;
   .form-check-label {
     font-size: 12px;
 		color: $white;
   }
   .alert {
       font-size: 12px;
-      font-family: Flama-Basic;
+      font-family: 'Flama-Basic';
       padding: 5px 10px;
   }
   .row {
@@ -182,8 +267,294 @@ $alpha-p3: .3;
   margin: 0 30px;
 }
 
- 
+/* SECTION DETAILS ============================================================= */
+.section-details {
+  position: relative;
+  p {  
+    color: $white;
+    font: 18px/1.4 'Flama-Basic', serif;
+    margin-bottom: 25px;
+  }
+  h2 {
+    font-size: 44px;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.29);
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: $yellow;
+    font-family: "DkLemonYellowSun","Arial","Helvetica","sans-serif";
+  }
+  .plane {
+    position: absolute;
+    &.plane-left {
+      bottom: 0;
+      left: 0;
+    }
+    &.plane-right {
+      top: 0;
+      right: -20px;
+    }
+  }
+  .details-item {
+    figure {
+      display: inline-block;
+    }
+  }
+  &.section-about {
+    padding: 125px 0;
+  }
+  &.section-jobs { 
+    background: $green url('info-bg.jpg') no-repeat center bottom; 
+    background-size: cover;
+    padding: 60px 0;
+    height: 100vh;
+    min-height: 700px;
+    max-height: 900px;
+  }
 
+}
+
+/* FOOTER ================================================================================== */
+footer {
+  font-family: 'Flama-Basic';
+  color: $gray-dark;
+  padding-top: 35px;
+
+  .logo {
+    max-width: 170px;
+    margin-top: 30px;
+  }
+  .centers {
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    p {
+      padding-left: 125px;
+      position: relative;
+      margin: 0;
+      font-size: 12px;
+      font-weight: 500;
+      span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-right: 8px;
+      }
+    }
+  }
+  .socials {
+    padding-top: 20px;
+    font-size: 13px;
+    a {
+      color: $gray-medium;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      li { margin-bottom: 8px; }
+      img {
+        max-width: 26px;
+        height: auto;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2px;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+/* Page Animations ====================================================================== */
+.animatable {
+  visibility: hidden;
+  @include animation-play('paused');
+}
+
+/* show objects being animated */
+.animated {
+  visibility: visible;
+  @include animation-fill(both);
+  @include animation-duration(1s);
+  @include animation-play(running);
+}
+
+/* CSS Animations */
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  } 100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-moz-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+  }
+}
+
+@-o-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(0px);
+  } 100% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+  }
+}
+
+@-moz-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(-20px);
+  }
+}
+
+@-o-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 1;
+    -o-transform: translateX(-20px);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-20px);
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  } 100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated.animationDelay{
+  animation-delay:.4s;
+  -webkit-animation-delay:.4s;
+}
+.animated.animationDelayMed{
+  animation-delay:1.2s;
+  -webkit-animation-delay:1.2s;
+}
+.animated.animationDelayLong{
+  animation-delay:1.6s;
+  -webkit-animation-delay:1.6s;
+}
+.animated.fadeInRight {
+  @include animation-name(fadeInRight);
+}
+.animated.fadeInLeft {
+  @include animation-name(fadeInLeft);
+}
+.animated.fadeInUp {
+  @include animation-name(fadeInUp);
+}
+
+
+/* Bootstrap overrides */
+@media screen and (min-width: 1200px){
+  .container {
+      max-width: 1054px;
+  }
+}
 
 
  /*.navbar-toggler:focus,

@@ -1,26 +1,26 @@
 # Delete all data and reset auto increments
-models = [ User, 
-						Blog,
-						Status,
-						Location,
-						Position,
-						Education,
-						Experience,
-						SourceInfo ]
+# models = [ User, 
+# 						Blog,
+# 						Status,
+# 						Location,
+# 						Position,
+# 						Education,
+# 						Experience,
+# 						SourceInfo ]
 
-models.each do |model|
-	model.delete_all
-	ActiveRecord::Base.connection.execute("Delete from #{model.table_name}")
-	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{model.table_name}'")
-end
+# models.each do |model|
+# 	model.delete_all
+# 	ActiveRecord::Base.connection.execute("Delete from #{model.table_name}")
+# 	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{model.table_name}'")
+# end
 
-# Active Storage data clearing
-active_storage_tbls = [ 'active_storage_blobs', 'active_storage_attachments' ]
-active_storage_tbls.each do |tbls|
-	ActiveRecord::Base.connection.execute("Delete from #{tbls}")
-	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{tbls}'")
-end
-FileUtils.rm_rf(Dir['storage/*']) 
+# # Active Storage data clearing
+# active_storage_tbls = [ 'active_storage_blobs', 'active_storage_attachments' ]
+# active_storage_tbls.each do |tbls|
+# 	ActiveRecord::Base.connection.execute("Delete from #{tbls}")
+# 	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{tbls}'")
+# end
+# FileUtils.rm_rf(Dir['storage/*']) 
 
 # Seeding of data
 

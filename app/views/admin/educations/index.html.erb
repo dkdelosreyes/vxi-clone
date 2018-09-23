@@ -1,0 +1,29 @@
+<%= provide(:title, 'Educations') %>
+<h1><%= yield :title %></h1>
+
+<%= link_to 'Add Education', new_admin_education_path %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+            <th>Title</th>
+            <th>Status</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% @educations.each do |data| %>
+    <tr>
+    	<td><%= data.title %></td>
+        <td><%= data.status.title %></td>
+        <td>
+            <%= link_to "Show", admin_education_path(data) %>
+            <%= link_to "Edit", edit_admin_education_path(data) %>
+            <%= link_to "Delete", [:admin, data], method: :delete, data: {confirm: "Are you sure?"} %>  
+        </td>
+    </tr>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<%= will_paginate @educations %>

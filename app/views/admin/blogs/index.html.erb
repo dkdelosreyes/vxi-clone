@@ -1,5 +1,5 @@
 <%= provide(:title, 'Blogs') %>
-<h1>All Blogs</h1>
+<h1><%= yield :title %></h1>
 
 <%= link_to 'Add Blog', new_admin_blog_path %>
 <table class="table table-hover">

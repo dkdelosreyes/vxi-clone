@@ -1,7 +1,12 @@
 # Delete all data and reset auto increments
 models = [ User, 
 						Blog,
-						Status ]
+						Status,
+						Location,
+						Position,
+						Education,
+						Experience,
+						SourceInfo ]
 
 models.each do |model|
 	model.delete_all
@@ -40,17 +45,58 @@ Blog.create(
     	user_id: user.id,
     	status_id: 1
 						)
-
 Blog.create( 
 			title: '2 PEOPLE OF VXI: FOR PAUL, SUCCESS IS EQUAL PARTS PASSION AND PERSEVERANCE',
     	description: '2 description here',
     	user_id: user.id,
     	status_id: 1
 						)
-
 Blog.create( 
 			title: '3 PEOPLE OF VXI: FOR PAUL, SUCCESS IS EQUAL PARTS PASSION AND PERSEVERANCE',
     	description: '3 description here',
     	user_id: user.id,
     	status_id: 1
 						)
+
+# Locations
+locations = ['North EDSA, Quezon City', 'EDSA Buendia, Makati City', 'MOA Complex, Pasay City', 'Robinsons Cybergate, Davao City', 'SM Ecoland, Davao City', 'Felcris Centrale, Davao City', 'SM City Clark, Angeles City']
+locations.each do |i|
+	Location.create( title: i, status_id: 1 )
+end
+
+# Positions
+positions = ['Sales Associate', 'Tech Support Associate', 'Customer Service Associate']
+positions.each do |i|
+	Position.create( title: i, status_id: 1 )
+end
+
+
+# Educations
+educations = ['High school graduate', 'K-12 Graduate', 'College graduate', 'Undergrad below 2 years', 'Undergrad 2 years and up', 'Post Graduate']
+educations.each do |i|
+	Education.create( title: i, status_id: 1 )
+end
+
+# Experience
+experience = ['None','Yes, 1-5 months', 'Yes, 6-11 months', 'Yes, 12-23 months', 'Yes, 24 months and above']
+experience.each do |i|
+	Experience.create( title: i, status_id: 1 )
+end
+
+# Source
+source = ['Social Media', 'Online Job Portals', 'Email', 'School Events', 'Referral', 'Outdoor Advertising', 'Print Advertising']
+source.each do |i|
+	SourceInfo.create( title: i, status_id: 1 )
+end
+
+
+
+
+
+
+
+
+
+
+
+

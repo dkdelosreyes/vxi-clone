@@ -1,5 +1,5 @@
 <%= provide(:title, "Edit Status") %>
 
-<h1>Edit Status</h1>
+<h1><%= yield :title %></h1>
 <%= link_to "Back to statuses", admin_statuses_path %><br>
 <%= render 'form' %>

@@ -1,6 +1,5 @@
 class Admin::StatusesController < Admin::UsersController
 	before_action :set_status, only: [:show, :edit, :update, :destroy]
-  layout 'admin'
 
   def index
     @statuses = Status.paginate(page: params[:page])

@@ -1,0 +1,6 @@
+<%= provide(:title, "Show Education") %>
+
+<h1><%= yield :title %></h1>
+<%= link_to "Back to Educations page", admin_educations_path %><br>
+Title: <%= @education.title %><br>
+Status Code: <%= @education.status.title %><br>

@@ -1,0 +1,6 @@
+<%= provide(:title, "Show Source") %>
+
+<h1><%= yield :title %></h1>
+<%= link_to "Back to Source page", admin_source_infos_path %><br>
+Title: <%= @source_info.title %><br>
+Status Code: <%= @source_info.status.title %><br>

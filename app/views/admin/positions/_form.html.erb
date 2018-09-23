@@ -1,0 +1,17 @@
+<% if @position.errors.any? %>
+	<% @position.errors.full_messages.each do |message| %>
+		<%= message %><br>
+	<% end %>
+<% end %>
+
+<%= form_with( model: [:admin, @position], local: true ) do |f| %>
+
+	<%= f.label "Title" %>
+	<%= f.text_field :title, class: "form-control" %>
+
+	<%= f.label "Status" %>
+	<%= f.collection_select :status_id, @statuses, :id, :title, {:selected => @position.status_id}, class: "form-control" %>
+
+	<%= f.submit "Submit", class: "btn btn-primary" %>
+	<%= button_tag 'Cancel', type: :reset, class: "btn btn-default"  %>
+<% end %>

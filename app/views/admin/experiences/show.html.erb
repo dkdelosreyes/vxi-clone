@@ -1,0 +1,6 @@
+<%= provide(:title, "Show Experience") %>
+
+<h1><%= yield :title %></h1>
+<%= link_to "Back to Experiences path", admin_experiences_path %><br>
+Title: <%= @experience.title %><br>
+Status Code: <%= @experience.status.title %><br>

@@ -1,6 +1,4 @@
 class Admin::BlogsController < Admin::UsersController
-	layout 'admin'
-
   before_action :set_blogs, only: [:show, :edit, :update, :destroy]
   before_action :set_statuses, only: [:new, :create, :edit, :update]
   

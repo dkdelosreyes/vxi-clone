@@ -1,0 +1,6 @@
+<%= provide(:title, "Show Location") %>
+
+<h1><%= yield :title %></h1>
+<%= link_to "Back to Locations page", admin_locations_path %><br>
+Title: <%= @location.title %><br>
+Status Code: <%= @location.status.title %><br>

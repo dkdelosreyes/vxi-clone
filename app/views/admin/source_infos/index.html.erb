@@ -1,0 +1,29 @@
+<%= provide(:title, 'Source ') %>
+<h1><%= yield :title %></h1>
+
+<%= link_to 'Add Source', new_admin_source_info_path %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+            <th>Title</th>
+            <th>Status</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% @source_infos.each do |data| %>
+    <tr>
+    	<td><%= data.title %></td>
+        <td><%= data.status.title %></td>
+        <td>
+            <%= link_to "Show", admin_source_info_path(data) %>
+            <%= link_to "Edit", edit_admin_source_info_path(data) %>
+            <%= link_to "Delete", [:admin, data], method: :delete, data: {confirm: "Are you sure?"} %>  
+        </td>
+    </tr>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<%= will_paginate @source_infos %>

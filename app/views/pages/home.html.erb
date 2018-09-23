@@ -20,7 +20,7 @@
     <div class="sec1-contents">
       <div class="row">
         <div class="container">
-          <div class=" col-lg-6 animatable fadeInUp">
+          <div class=" col-md-6 col-sm-12 animatable fadeInUp">
 
             <%= render 'layouts/form' %>
 
@@ -36,10 +36,10 @@
   <figure ><%= image_tag 'airplane2.png', class: 'plane plane-right animatable fadeInLeft' %></figure>
   <div class="container">
     <div class="row">
-      <div class="col-6 animatable fadeInUp">
-        <%= image_tag 'intro-title.png' %>
+      <div class="col-md-6 col-sm-12 animatable fadeInUp">
+        <%= image_tag 'intro-title.png', class: 'img-passion' %>
       </div>
-      <div class="col-6 animatable fadeInUp animationDelay">
+      <div class="col-md-6 col-sm-12 animatable fadeInUp animationDelay">
         <p>Our story started in Los Angeles in 1997 as an Integrated Customer Contact Center that specializes in Multilingual Solutions. Our founders believed that a unique blend of Technology and Customer Service will ultimately achieve Excellent Consumer Management.</p>
 
         <p>VXI Philippines was established in 2003 and since then, our road to success continues to soar. In fact, we are now 12,000 employees strong across Metro Manila and Davao. But we do not stop there. We are continuously looking for new talents that will join our journey, and together, we build a great culture, create success stories and take amazing care of our people.</p>
@@ -54,7 +54,7 @@
 <section class="section-details bg-green section-jobs">
   <div class="container">
     <div class="row">
-      <div class="col-7 animatable fadeInUp">
+      <div class="col-lg-7 col-md-9 animatable fadeInUp">
         <div class="details-item">
           <h2>Customer Service Associates <figure><%= image_tag 'smiley.png', class: 'mw-50 ic' %></figure></h2>
           <p>Committed to client satisfaction, VXI is on the lookout for Customer Service Associates who are passionate about providing excellent service to customers. Work with us and be inspired to be your best every day!</p>
@@ -79,15 +79,10 @@
 <script>
   $(function(){
 
-    /* Set the height of section-slider based on contents or window height */
-    // var slider_contents_height = 0;
-    // $('#section-slider #mainCarousel').each(function(){
-    //   slider_contents_height = Math.max(slider_contents_height, $(this).height() + $(this).position().top);
-    // });
-    // window_height = $(window).height();
-    // section_slider_height = slider_contents_height > window_height ? slider_contents_height : window_height;
-    // // $('#section-slider').css('height', section_slider_height - 1);
-    $('#section-slider').css('height', $('#section-slider #mainCarousel').height()  - 1);
+    var carousel_height = $('#section-slider #mainCarousel').height();
+    if(carousel_height > 768) {
+      $('#section-slider').css('height', carousel_height  - 1);
+    }
 
 
     // Function which adds the 'animated' class to any '.animatable' in view
@@ -116,13 +111,22 @@
 });
 
 
+function toggleHamburgerMenu() {
+  var element = document.getElementById('Navbar');
+  element.classList.toggle("mobile");
+}
+
+
 function resizeHandler() {
+
   var w = window.outerWidth;
   var h = window.outerHeight;
   var txt = "Window size: width=" + w + ", height=" + h;
-  $('#section-slider').css('height', $('#section-slider #mainCarousel').height()  - 1);
-  console.log($('#section-slider #mainCarousel').height() + 100);
-  // document.getElementById("demo").innerHTML = txt;
+  var carousel_height = $('#section-slider #mainCarousel').height();
+  if(carousel_height > 700) {
+    console.log('resizeHandler', carousel_height);
+    $('#section-slider').css('height', $('#section-slider #mainCarousel').height()  - 1);
+  }
 }
 
 // Scroll to top animation

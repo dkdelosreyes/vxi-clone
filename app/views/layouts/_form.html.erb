@@ -15,12 +15,12 @@
   <% end %>
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-6 col-sm-12">
       <label for="">First Name*</label>
       <%= form.text_field :first_name, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['first_name']) if flash.key?('errors') %></p>
     </div>
-    <div class="col">
+    <div class="col-md-6 col-sm-12">
       <label for="">Last Name*</label>
       <%= form.text_field :last_name, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['last_name']) if flash.key?('errors') %></p>
@@ -28,12 +28,12 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-6 col-sm-12">
       <label for="">Contact Number*</label>
       <%= form.text_field :user_phone_number, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['user_phone_number']) if flash.key?('errors') %></p>
     </div>
-    <div class="col">
+    <div class="col-md-6 col-sm-12">
       <label for="">Email Address</label>
       <%= form.email_field :email, required: true %>
       <p class="help"><%= @applicant.humanized_error(flash['errors']['email']) if flash.key?('errors') %></p>

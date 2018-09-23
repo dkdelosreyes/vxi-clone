@@ -78,10 +78,12 @@
 
 <script>
   /* Resize lister for Home page */
+  resizeHandler();
   document.body.onresize = resizeHandler;
   function resizeHandler(e) {
     var carousel_height = document.getElementById('mainCarousel').offsetHeight;
     if(carousel_height > 500) {
+      console.log('resizing');
       document.getElementById('section-slider').style.height = carousel_height - 1 + 'px';
     }
   }

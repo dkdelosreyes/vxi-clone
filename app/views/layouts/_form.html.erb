@@ -1,4 +1,4 @@
-<%= form_with model: @applicant, url: signup_vxi_path, remote: true, class: 'form-signup' do |form| %>
+<%= form_with model: @applicant, url: signup_vxi_path, remote: true, class: 'form-signup', id: 'formSignUp' do |form| %>
   <div class="row">
     <div class="col">
       <a href="" class="btn-fb" id="BtnFB">Sign Up with Facebook</a>
@@ -72,7 +72,7 @@
 
   <div class="form-group">
     <div class="form-check">
-      <%= form.check_box :terms, class: 'form-check-input', required: true, checked: true%>
+      <%= form.check_box :terms, class: 'form-check-input', required: true%>
       <label class="form-check-label" for="gridCheck">
         I have agree to the <%= link_to 'Privacy Policy', privacy_policy_path %> and <%= link_to 'Terms and Conditions', terms_conditions_path %>.
       </label>

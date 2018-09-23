@@ -9,15 +9,15 @@
 	<%= f.label "Title" %>
 	<%= f.text_field :title, class: "form-control" %>
 
-	<%= f.label "Description" %>
-	<!-- <%= f.text_area :description, class: "form-control" %> -->
-	<%= f.text_area :description, :class => "tinymce", :rows => 40, :cols => 120 %>
-<%= tinymce %>
 	<%= f.label "Status" %>
 	<%= f.collection_select :status_id, @statuses, :id, :title, {:selected => @blog.status_id}, class: "form-control" %>
 
 	<%= f.label 'Photo' %>
-    <%= f.file_field :photo%>
+  <%= f.file_field :photo%>
+
+	<%= f.label "Description" %>
+	<%= f.text_area :description, :class => "tinymce", :rows => 40, :cols => 120 %>
+	<%= tinymce %>
 
 	<%= f.submit "Submit", class: "btn btn-primary" %>
 	<%= button_tag 'Cancel', type: :reset, class: "btn btn-default"  %>

@@ -82,7 +82,6 @@
   function resizeHandler(e) {
     var carousel_height = document.getElementById('mainCarousel').offsetHeight;
     if(carousel_height > 500) {
-      console.log('resizeHandler', carousel_height);
       document.getElementById('section-slider').style.height = carousel_height - 1 + 'px';
     }
   }
@@ -101,12 +100,11 @@
   /* FB API  */
   function getUserData() {
     FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
-      $('#applicant_first_name').val(response.first_name);
-      $('#applicant_last_name').val(response.last_name);
-      console.log('getUserData', response);
+      document.getElementById('applicant_first_name').value = response.first_name;
+      document.getElementById('applicant_last_name').value = response.last_name;
     });
   }
-  /* Commented out to remove localhost error */
+
   window.fbAsyncInit = function() {
     //SDK loaded, initialize it
     FB.init({
@@ -114,16 +112,12 @@
       xfbml      : true,
       version    : 'v2.8'
     });
-   console.log('fbAsyncInit');
     //check user session and refresh it
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         //user is authorized
         getUserData();
-      } else {
-        //user is not authorized
-        console.log('please log in');
-      }
+      } 
     });
   };
    

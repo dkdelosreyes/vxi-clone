@@ -12,17 +12,17 @@ Rails.application.routes.draw do
 	post 'signup_vxi', to: 'applicants#signup_vxi'
 
 	# Admin paths
-	# devise_for :users, path: 'admin', skip: :registrations
-	# get 'admin', to: 'admin/blogs#index'
-	# namespace :admin do
-	# 	resources :posts
-	# 	resources :users
-	# 	resources :blogs
-	# 	resources :statuses
-	# 	resources :locations
-	# 	resources :source_infos
-	# 	resources :experiences
-	# 	resources :educations
-	# 	resources :positions
-	# end
+	devise_for :users, path: 'admin', skip: :registrations
+	get 'admin', to: 'admin/blogs#index'
+	namespace :admin do
+		resources :posts
+		resources :users
+		resources :blogs
+		resources :statuses
+		resources :locations
+		resources :source_infos
+		resources :experiences
+		resources :educations
+		resources :positions
+	end
 end

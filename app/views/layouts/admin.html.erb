@@ -1,5 +1,4 @@
-<!-- app/views/layouts/admin.erb -->
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
@@ -14,34 +13,25 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+  <%= render 'admin/layouts/header' %>
+  <div id="wrapper">
+    <%= render 'admin/layouts/sidebar' %>
+    <div id="content-wrapper">
+      <div class="container-fluid">
+        <!-- Page Content -->
+        <%= yield %>
+      </div>
+      <!-- /.container-fluid -->
 
-<!-- app/views/layouts/_header.erb -->
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Admin', admin_path, class: 'navbar-brand' %>
+      <!-- Sticky Footer -->
+      <%= render 'admin/layouts/footer' %>  
     </div>
-
+    <!-- /.content-wrapper -->
   </div>
-</nav>
-
-
-
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
-
-  <%= yield %>
-</div>
-
+  <!-- /#wrapper -->
+<% else %>
+  <%= render 'admin/layouts/login' %>
+<% end %>
 </body>
 </html>

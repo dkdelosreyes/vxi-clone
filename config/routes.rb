@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	# Redirect invalid routes to root in production
-	# match '*path' => redirect('/'), via: [:get, :post] unless Rails.env.development?
+	match '*path' => redirect('/'), via: [:get, :post] unless Rails.env.development?
   
   # Public paths
 	root to: 'pages#home'

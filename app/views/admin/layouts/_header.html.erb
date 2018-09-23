@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+  <a class="navbar-brand mr-1" href="">Admin VXI</a>
+
+  <!-- Navbar -->
+  <ul class="navbar-nav ml-auto ml-md-0">
+    <li class="nav-item dropdown no-arrow">
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link dropdown-toggle'  %>
+    </li>
+  </ul>
+
+</nav>

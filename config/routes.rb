@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   
   # Public paths
 	root to: 'pages#home'
-	get 'blogs', to: 'pages#blog'
+	get 'blogs', to: 'pages#blogs'
+	get "blogs/:id", to: 'pages#blog'
 	get 'privacy-policy', to: 'pages#privacy'
 	get 'terms-conditions', to: 'pages#terms'
 	get 'page', to: 'pages#page'

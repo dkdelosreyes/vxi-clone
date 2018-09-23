@@ -1,0 +1,33 @@
+<main>
+	<div class="sec1-contents section-blogs">
+    <div class="row">
+      <div class="container">
+
+      	<h1>Blog</h1>
+      	<div class="blogs">
+          
+          <% @blogs.each do |blog| %>
+
+        	  <div class="row">
+    					<div class="col-lg-4 thumbnail">
+    						<%= link_to image_tag( photo_path(blog.photo) , alt: blog.title), "blogs/#{blog.id}" %>
+    					</div>
+    					<div class="col-lg-8 description">
+      					<h2><%= link_to blog.title, "blogs/#{blog.id}"  %></h2>
+      					<div class="info">
+      						<span class="date"><%= blog.updated_at.strftime("%B %d, %Y") %></span> 
+      						<span class="author">By: <span class="author"><%= blog.user.first_name %></span></span>
+      					</div>
+    						<p><%= truncate(strip_tags(blog.description), length: 150) %>&hellip;
+    						<%= link_to 'Read more', "blogs/#{blog.id}" %>
+    						</p>
+    					</div>
+    				</div>
+
+          <% end %>
+
+      </div>
+        
+    </div>
+  </div>
+</main>

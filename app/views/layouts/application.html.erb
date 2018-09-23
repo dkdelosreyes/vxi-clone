@@ -11,12 +11,12 @@
     <%= favicon_link_tag source='xvi-favicon-150x150.png', options={} %>
   </head>
 
-  <body onresize="resizeHandler()">
+  <body>
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    
+    <%= javascript_include_tag "custom", "data-turbolinks-track" => true  %>
   </body>
 </html>

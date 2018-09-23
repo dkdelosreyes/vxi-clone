@@ -9,6 +9,14 @@ models.each do |model|
 	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{model.table_name}'")
 end
 
+# Active Storage data clearing
+active_storage_tbls = [ 'active_storage_blobs', 'active_storage_attachments' ]
+active_storage_tbls.each do |tbls|
+	ActiveRecord::Base.connection.execute("Delete from #{tbls}")
+	ActiveRecord::Base.connection.execute("DELETE FROM SQLITE_SEQUENCE WHERE name='#{tbls}'")
+end
+FileUtils.rm_rf(Dir['storage/*']) 
+
 # Seeding of data
 
 # Status

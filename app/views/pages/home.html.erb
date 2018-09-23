@@ -84,6 +84,16 @@
       $('#section-slider').css('height', carousel_height  - 1);
     }
 
+    $( "form" ).submit(function( ) {
+      console.log('submitted');
+      $('.ajax-loader').show();
+      // $('#ajax_output').html("loading...")
+    });
+    if ($(".alert").text().length > 0){
+      $('.ajax-loader').hide();
+        // Do something if class exists
+    }
+
 
     // Function which adds the 'animated' class to any '.animatable' in view
     var doAnimations = function() {

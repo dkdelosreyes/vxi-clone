@@ -446,6 +446,14 @@ nav.fixed-top {
       }
 	  }
   }
+  .ajax-loader {
+    display: none;
+    padding: 0px 17px;
+    @include media-breakpoint-down(sm) {
+      padding: 5px 0;
+      width: 100%;
+    }
+  }
   @include media-breakpoint-down(md) {
     .form-group {
       margin-bottom: 7px;
@@ -781,3 +789,4 @@ footer {
     @include animation-name(fadeInUp);
   }
 }
+

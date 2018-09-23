@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :source_infos
-  end
-  namespace :admin do
-    resources :experiences
-  end
-  namespace :admin do
-    resources :educations
-  end
-  namespace :admin do
-    resources :positions
-  end
 	# Redirect invalid routes to root in production
-	match '*path' => redirect('/'), via: [:get, :post] unless Rails.env.development?
+	# match '*path' => redirect('/'), via: [:get, :post] unless Rails.env.development?
   
   # Public paths
 	root to: 'pages#home'
@@ -32,5 +20,9 @@ Rails.application.routes.draw do
 		resources :blogs
 		resources :statuses
 		resources :locations
+		resources :source_infos
+		resources :experiences
+		resources :educations
+		resources :positions
 	end
 end

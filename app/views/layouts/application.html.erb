@@ -11,7 +11,7 @@
     <%= favicon_link_tag source='xvi-favicon-150x150.png', options={} %>
   </head>
 
-  <body>
+  <body onresize="resizeHandler()">
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>

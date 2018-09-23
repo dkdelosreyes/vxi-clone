@@ -9,9 +9,10 @@ class PagesController < ApplicationController
   def privacy
   end
 
-  private 
-
-  def applicant_params
-  	params.require(:applicant).permit(:email)
+  def terms
   end
+
+  def page
+  end
+
 end

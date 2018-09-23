@@ -115,6 +115,16 @@
     $(window).trigger('scroll');
 });
 
+
+function resizeHandler() {
+  var w = window.outerWidth;
+  var h = window.outerHeight;
+  var txt = "Window size: width=" + w + ", height=" + h;
+  $('#section-slider').css('height', $('#section-slider #mainCarousel').height()  - 1);
+  console.log($('#section-slider #mainCarousel').height() + 100);
+  // document.getElementById("demo").innerHTML = txt;
+}
+
 // Scroll to top animation
 function scrollToTop(scrollDuration) {
   var scrollStep = -window.scrollY / (scrollDuration / 15),
@@ -135,25 +145,25 @@ function getUserData() {
   });
 }
 /* Commented out to remove localhost error */
-window.fbAsyncInit = function() {
-  //SDK loaded, initialize it
-  FB.init({
-    appId      : '929935887215359',
-    xfbml      : true,
-    version    : 'v2.8'
-  });
- console.log('fbAsyncInit');
-  //check user session and refresh it
-  FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-      //user is authorized
-      getUserData();
-    } else {
-      //user is not authorized
-      console.log('please log in');
-    }
-  });
-};
+// window.fbAsyncInit = function() {
+//   //SDK loaded, initialize it
+//   FB.init({
+//     appId      : '929935887215359',
+//     xfbml      : true,
+//     version    : 'v2.8'
+//   });
+//  console.log('fbAsyncInit');
+//   //check user session and refresh it
+//   FB.getLoginStatus(function(response) {
+//     if (response.status === 'connected') {
+//       //user is authorized
+//       getUserData();
+//     } else {
+//       //user is not authorized
+//       console.log('please log in');
+//     }
+//   });
+// };
  
 //load the JavaScript SDK
 (function(d, s, id){

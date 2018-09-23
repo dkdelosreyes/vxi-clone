@@ -257,7 +257,7 @@ nav.fixed-top {
       color: #353535;
       padding: 15px 23px;
       display: inline-block;
-      font-family: Flama-Basic, Helvetica, sans-serif;
+      font-family: 'Flama-Basic','Arial','Helvetica','sans-serif';
     }
     .nav-item-diagonal {
       width: 0;
@@ -376,7 +376,7 @@ nav.fixed-top {
 /* FORM ====================================================================================================== */
 .form-signup {
 	padding-left: 20px;
-	font-family: 'Flama-Basic';
+	font-family: 'Flama-Basic','Arial','Helvetica','sans-serif';
   max-width: 410px;
   @include media-breakpoint-down(sm) {
     margin: 0 auto 40px;
@@ -388,7 +388,7 @@ nav.fixed-top {
   }
   .alert-info {
       font-size: 12px;
-      font-family: 'Flama-Basic';
+      font-family: 'Flama-Basic','Arial','Helvetica','sans-serif';
       padding: 5px 10px;
       color: #0a0a0a;
       background-color: $white;
@@ -465,7 +465,7 @@ nav.fixed-top {
 }
 
 .help-info {
-  font-family: Flama-Basic;
+  font-family: 'Flama-Basic','Arial','Helvetica','sans-serif';
   color: $white;
   text-align: center;
   font-size: 12px;
@@ -479,7 +479,7 @@ nav.fixed-top {
   position: relative;
   p {  
     color: $white;
-    font: 18px/1.4 'Flama-Basic', serif;
+    font: 18px/1.4 'Flama-Basic','Arial','Helvetica','sans-serif';
     margin-bottom: 25px;
   }
   h2 {
@@ -488,7 +488,7 @@ nav.fixed-top {
     font-weight: bold;
     margin-bottom: 10px;
     color: $yellow;
-    font-family: "DkLemonYellowSun","Arial","Helvetica","sans-serif";
+    font-family: 'DkLemonYellowSun','Arial','Helvetica','sans-serif';
   }
   .plane {
     position: absolute;
@@ -553,7 +553,7 @@ nav.fixed-top {
 .section-blogs {
   background-color: $gray-dark;
   padding-top: 160px;
-  font-family: 'Flama-Basic';
+  font-family: 'Flama-Basic','Arial','Helvetica','sans-serif';
   color: $white;
   padding-bottom: 30px;
   @include media-breakpoint-down(md) {
@@ -562,7 +562,7 @@ nav.fixed-top {
   h1 {
     color: $orange;
     text-align: center;
-    font-family: 'DkLemonYellowSun';
+    font-family: 'DkLemonYellowSun','Arial','Helvetica','sans-serif';
     font-size: 64px;
     line-height: 1;
     text-transform: uppercase;
@@ -576,7 +576,7 @@ nav.fixed-top {
     padding: 0;
     a {
       color: $yellow;
-      font-family: 'DkLemonYellowSun';
+      font-family: 'DkLemonYellowSun','Arial','Helvetica','sans-serif';
     }
   }
   h4 { 
@@ -658,7 +658,7 @@ nav.fixed-top {
 
 /* FOOTER ================================================================================== */
 footer {
-  font-family: 'Flama-Basic';
+  font-family: 'Flama-Basic','Arial','Helvetica','sans-serif';
   color: $gray-dark;
   padding-top: 35px;
   @include media-breakpoint-down(md) {

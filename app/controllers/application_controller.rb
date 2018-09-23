@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # Sets the layout for the routes
   def set_layout
     devise_controller? ? 'admin' : 'application'
   end

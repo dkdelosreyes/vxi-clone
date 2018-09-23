@@ -60,6 +60,7 @@ class Applicant
       return false
   end
 
+  # Talkpush specific message
   def humanized_talkpush_msg(message) 
     if JSON.parse(message)['error']
       I18n.t 'talkpush.duplicated'
@@ -68,13 +69,14 @@ class Applicant
     end
   end
 
-  # Change ex. ["can't be blank", "is invalid"] to Can't be blank and is invalid
+  # Humanizing errors by ex. ["can't be blank", "is invalid"] to Can't be blank and is invalid
   def humanized_error(error)
     if(error.kind_of?(Array))
       full_message = error.size > 1 ? replace_last_occur(error.join(', '), ', ', ' and ') + '.' : error.first
     end
   end
 
+  # Replace last occurence of the given word with a new word
   def replace_last_occur(old_str, to_rep, rep_with)
     old_str.reverse.sub(to_rep.reverse, rep_with.reverse).reverse
   end

@@ -16,6 +16,7 @@ gem 'mini_magick',    '4.8.0'
 gem 'jquery-rails', 	'4.3.1'
 gem 'will_paginate',  '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'tinymce-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

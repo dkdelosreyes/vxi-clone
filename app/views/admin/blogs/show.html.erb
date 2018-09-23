@@ -1,0 +1,7 @@
+<%= provide(:title, "Show Blog") %>
+
+<h1>Show</h1>
+<%= link_to "Back to Blogs path", admin_blogs_path %><br>
+Title: <%= @blog.title %><br>
+Icon: <%= @blog.description %><br>
+Status Code: <%= @blog.status.title %><br>

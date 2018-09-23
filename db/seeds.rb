@@ -17,10 +17,32 @@ Status.create( title: 'Inactive', code: 'inactive' )
 
 # Users
 password = "password"
-User.create( email: "a@a.com",
+user = User.create( email: "a@a.com",
 							password: password,
 							password_confirmation: password,
 							first_name: "Admin",
 							last_name: "Istrator",
 							status_id: 1 
 							)
+
+# Blogs
+Blog.create( 
+			title: 'PEOPLE OF VXI: FOR PAUL, SUCCESS IS EQUAL PARTS PASSION AND PERSEVERANCE',
+    	description: 'description here',
+    	user_id: user.id,
+    	status_id: 1
+						)
+
+Blog.create( 
+			title: '2 PEOPLE OF VXI: FOR PAUL, SUCCESS IS EQUAL PARTS PASSION AND PERSEVERANCE',
+    	description: '2 description here',
+    	user_id: user.id,
+    	status_id: 1
+						)
+
+Blog.create( 
+			title: '3 PEOPLE OF VXI: FOR PAUL, SUCCESS IS EQUAL PARTS PASSION AND PERSEVERANCE',
+    	description: '3 description here',
+    	user_id: user.id,
+    	status_id: 1
+						)

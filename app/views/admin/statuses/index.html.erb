@@ -1,0 +1,29 @@
+<%= provide(:title, "All Status") %>
+
+<h1>All Status</h1>
+
+<%= link_to "Add Status", new_admin_status_path %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Code</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @statuses.each do |status| %>
+		<tr>
+			<td><%= status.title %></td>
+			<td><%= status.code %></td>
+			<td>
+				<%= link_to "Show", admin_status_path(status) %>
+				<%= link_to "Edit", edit_admin_status_path(status) %>	
+				<%= link_to "Delete", [:admin, status], method: :delete, data: {confirm: "Are you sure?"} %>	
+			</td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+
+<%= will_paginate %>

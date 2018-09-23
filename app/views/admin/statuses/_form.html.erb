@@ -1,0 +1,16 @@
+<% if @status.errors.any? %>
+	<% @status.errors.full_messages.each do |message| %>
+		<%= message %><br>
+	<% end %>
+<% end %>
+
+<%= form_with( model: [:admin, @status], local: true) do |f| %>
+	<%= f.label "Code" %>
+	<%= f.text_field :code, class: "form-control" %>
+
+	<%= f.label "Title" %>
+	<%= f.text_field :title, class: "form-control" %>
+
+	<%= f.submit "Submit", class: "btn btn-primary" %>
+	<%= button_tag 'Cancel', type: :reset, class: "btn btn-default"  %>
+<% end %>

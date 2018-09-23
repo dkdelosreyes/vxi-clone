@@ -1,0 +1,29 @@
+<%= provide(:title, 'Blogs') %>
+<h1>All Blogs</h1>
+
+<%= link_to 'Add Blog', new_admin_blog_path %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+            <th>Title</th>
+            <th>Status</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+    <% @blogs.each do |blog| %>
+    <tr>
+    	<td><%= blog.title %></td>
+        <td><%= blog.status.title %></td>
+        <td>
+            <%= link_to "Show", admin_blog_path(blog) %>
+            <%= link_to "Edit", edit_admin_blog_path(blog) %>
+            <%= link_to "Delete", [:admin, blog], method: :delete, data: {confirm: "Are you sure?"} %>  
+        </td>
+    </tr>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<%= will_paginate @blogs %>

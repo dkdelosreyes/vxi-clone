@@ -1,4 +1,4 @@
-<main id="HomePage">
+<main id="HomePage" onresize="resizeHandler()">
   <section id='section-slider'>
     <div id="mainCarousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
@@ -75,3 +75,27 @@
     </div>
   </div>
 </section>
+
+<script>
+  /* Add Resize lister to Home page */
+  resizeHandler();
+  document.body.onresize = resizeHandler;
+  function resizeHandler(e) {
+    var carousel_height = document.getElementById('mainCarousel').offsetHeight;
+    if(carousel_height > 500) {
+      console.log('resizeHandler', carousel_height);
+      document.getElementById('section-slider').style.height = carousel_height - 1 + 'px';
+    }
+  }
+
+  /* Scroll to top animation */
+  function scrollToTop(scrollDuration) {
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+      scrollInterval = setInterval(function(){
+      if ( window.scrollY != 0 ) {
+          window.scrollBy( 0, scrollStep );
+      }
+      else clearInterval(scrollInterval); 
+    },15);
+  }
+</script>

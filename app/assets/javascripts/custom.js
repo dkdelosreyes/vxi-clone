@@ -6,29 +6,7 @@ function toggleHamburgerMenu() {
 
 if( document.getElementById("HomePage") ) {
 	console.log('Home');
-
-	/* Add Resize lister to Home page */
-	resizeHandler();
-	window.addEventListener("resize", resizeHandler());
-	function resizeHandler() {
-	  var carousel_height = document.getElementById('mainCarousel').offsetHeight;
-	  console.log('carousel_height',carousel_height);
-	  if(carousel_height > 700) {
-	    console.log('resizeHandler', carousel_height);
-	    document.getElementById('section-slider').style.height = document.getElementById('mainCarousel').offsetHeight  - 1;
-	  }
-	}
-
-	/* Scroll to top animation */
-	function scrollToTop(scrollDuration) {
-	  var scrollStep = -window.scrollY / (scrollDuration / 15),
-	    scrollInterval = setInterval(function(){
-	    if ( window.scrollY != 0 ) {
-	        window.scrollBy( 0, scrollStep );
-	    }
-	    else clearInterval(scrollInterval); 
-	  },15);
-	}
+	
 
 	/* FB API  */
 	function getUserData() {
@@ -39,25 +17,25 @@ if( document.getElementById("HomePage") ) {
 	  });
 	}
 	/* Commented out to remove localhost error */
-	// window.fbAsyncInit = function() {
-	//   //SDK loaded, initialize it
-	//   FB.init({
-	//     appId      : '929935887215359',
-	//     xfbml      : true,
-	//     version    : 'v2.8'
-	//   });
-	//  console.log('fbAsyncInit');
-	//   //check user session and refresh it
-	//   FB.getLoginStatus(function(response) {
-	//     if (response.status === 'connected') {
-	//       //user is authorized
-	//       getUserData();
-	//     } else {
-	//       //user is not authorized
-	//       console.log('please log in');
-	//     }
-	//   });
-	// };
+	window.fbAsyncInit = function() {
+	  //SDK loaded, initialize it
+	  FB.init({
+	    appId      : '929935887215359',
+	    xfbml      : true,
+	    version    : 'v2.8'
+	  });
+	 console.log('fbAsyncInit');
+	  //check user session and refresh it
+	  FB.getLoginStatus(function(response) {
+	    if (response.status === 'connected') {
+	      //user is authorized
+	      getUserData();
+	    } else {
+	      //user is not authorized
+	      console.log('please log in');
+	    }
+	  });
+	};
 	 
 	//load the JavaScript SDK
 	(function(d, s, id){

@@ -15,6 +15,9 @@
 	<%= f.label "Status" %>
 	<%= f.collection_select :status_id, @statuses, :id, :title, {:selected => @blog.status_id}, class: "form-control" %>
 
+	<%= f.label 'Photo' %>
+    <%= f.file_field :photo%>
+
 	<%= f.submit "Submit", class: "btn btn-primary" %>
 	<%= button_tag 'Cancel', type: :reset, class: "btn btn-default"  %>
 <% end %>

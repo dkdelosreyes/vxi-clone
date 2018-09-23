@@ -2,6 +2,7 @@
 
 <h1>Show</h1>
 <%= link_to "Back to Blogs path", admin_blogs_path %><br>
+<%= image_tag @blog.photo_path( @blog.photo ) %>
 Title: <%= @blog.title %><br>
 Icon: <%= @blog.description %><br>
 Status Code: <%= @blog.status.title %><br>

@@ -5,6 +5,7 @@ class CreateBlogs < ActiveRecord::Migration[5.2]
     	t.text :description
     	t.integer :user_id
     	t.integer :status_id
+      t.string :photo
       t.timestamps
 
       t.index :status_id

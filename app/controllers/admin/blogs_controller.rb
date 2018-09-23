@@ -55,7 +55,7 @@ class Admin::BlogsController < Admin::UsersController
   end
 
   def blog_params
-  	params.require(:blog).permit(:title, :description, :status_id, :user_id)
+  	params.require(:blog).permit(:title, :description, :status_id, :user_id, :photo)
   end
 
 end

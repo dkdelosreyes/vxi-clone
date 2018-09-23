@@ -4,18 +4,9 @@ function toggleHamburgerMenu() {
   element.classList.toggle("mobile");
 }
 
-if( document.getElementById("HomePage") ) {
-	console.log('Home');
-	
-
-	
-}
-
-
 /* Jquery stuff */
 $(function(){
   
-
   /* Toggle ajax loader */
   $( "form" ).submit(function( ) {
     console.log('submitted');

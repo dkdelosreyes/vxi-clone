@@ -47,7 +47,6 @@ class Applicant
 
       @request.body = details.to_json
       response = http.request(@request) 
-      # valid_json?(response.read_body)
       humanized_talkpush_msg(response.read_body) if valid_json?(response.read_body)
   end
 

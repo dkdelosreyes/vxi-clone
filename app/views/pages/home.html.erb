@@ -5,7 +5,7 @@
         <div class="carousel-item active" style="background-color: #02c1b2">
           <img class="d-block w-100" src="<%= image_url 'raffy-1.png' %>" alt="First slide">
         </div>
-        <div class="carousel-item" style="background-color: #f71d58">
+        <div class="carousel-item" style="background-color: #F80058">
           <img class="d-block w-100" src="<%= image_url 'rex-1353x699.png' %>" alt="First slide">
         </div>
         <div class="carousel-item" style="background-color: #ff5a00">
@@ -82,10 +82,7 @@
   document.body.onresize = resizeHandler;
   function resizeHandler(e) {
     var carousel_height = document.getElementById('mainCarousel').offsetHeight;
-    if(carousel_height > 500) {
-      console.log('resizing');
-      document.getElementById('section-slider').style.height = carousel_height - 1 + 'px';
-    }
+    document.getElementById('section-slider').style.height = window.innerWidth > 768 ? (carousel_height - 1 + 'px') : 'auto';
   }
 
   /* Scroll to top animation */

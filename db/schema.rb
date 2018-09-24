@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_124744) do
   end
 
   create_table "blogs", force: :cascade do |t|
-    t.string "title", limit: 50, null: false
+    t.string "title", limit: 255, null: false
     t.text "description"
     t.integer "user_id"
     t.integer "status_id"

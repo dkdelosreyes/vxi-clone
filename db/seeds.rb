@@ -23,7 +23,7 @@
 # FileUtils.rm_rf(Dir['storage/*']) 
 
 # Seeding of data
-
+# test
 # Status
 Status.create( title: 'Active', code: 'active')
 Status.create( title: 'Inactive', code: 'inactive' )

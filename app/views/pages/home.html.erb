@@ -3,16 +3,16 @@
     <div id="mainCarousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" style="background-color: #02c1b2">
-          <img class="d-block w-100" src="<%= image_url 'raffy-1.png' %>" alt="First slide">
+          <img class="d-block" src="<%= image_url 'raffy-1.png' %>" alt="First slide">
         </div>
         <div class="carousel-item" style="background-color: #F80058">
-          <img class="d-block w-100" src="<%= image_url 'rex-1353x699.png' %>" alt="First slide">
+          <img class="d-block" src="<%= image_url 'rex-1353x699.png' %>" alt="First slide">
         </div>
         <div class="carousel-item" style="background-color: #ff5a00">
-          <img class="d-block w-100" src="<%= image_url 'sundae-1353x699.png' %>" alt="First slide">
+          <img class="d-block" src="<%= image_url 'sundae-1353x699.png' %>" alt="First slide">
         </div>
         <div class="carousel-item" style="background-color: #afb803">
-          <img class="d-block w-100" src="<%= image_url 'velvet-1353x699.png' %>" alt="First slide">
+          <img class="d-block" src="<%= image_url 'velvet-1353x699.png' %>" alt="First slide">
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
 <section class="section-details bg-green section-jobs">
   <div class="container">
     <div class="row">
-      <div class="col-lg-7 col-md-9">
+      <div class="col-xl-7 col-lg-8 col-md-9">
         <div class="details-item animatable fadeInUp">
           <h2>Customer Service Associates <figure><%= image_tag 'smiley.png', class: 'mw-50 ic' %></figure></h2>
           <p>Committed to client satisfaction, VXI is on the lookout for Customer Service Associates who are passionate about providing excellent service to customers. Work with us and be inspired to be your best every day!</p>
@@ -77,14 +77,6 @@
 </section>
 
 <script>
-  /* Resize lister for Home page */
-  resizeHandler();
-  document.body.onresize = resizeHandler;
-  function resizeHandler(e) {
-  	console.log('resize');
-    var carousel_height = document.getElementById('mainCarousel').offsetHeight;
-    document.getElementById('section-slider').style.height = window.innerWidth > 768 ? (carousel_height - 1 + 'px') : 'auto';
-  }
 
   /* Scroll to top animation */
   function scrollToTop(scrollDuration) {

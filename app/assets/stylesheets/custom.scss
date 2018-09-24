@@ -174,6 +174,10 @@ $alpha-p3: .3;
       box-shadow: none;
       transition: box-shadow 0.5s ease;
     }
+    @include media-breakpoint-down(xs) {
+      font-size: 20px;
+      width: 100%;
+    }
   }
   @include media-breakpoint-down(sm) {
     margin: 0 auto;
@@ -338,30 +342,44 @@ nav.fixed-top {
 
 /* Section Slider ======================================================================================== */
 #section-slider {
+  position: relative;
 	#mainCarousel {
 		position: absolute;
 		width: 100%;
-		img {
-			max-width: 1230px;
-	    margin: 0 auto;
-	    padding-top: 140px;
-      @include media-breakpoint-down(lg) {
-        padding-top: 280px;
+		height: 100%;
+		.carousel-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .carousel-item {
+        height: 100%;
       }
+    }
+		img {
+		  max-width: 2560px;
+			width: 90%;
+      bottom: 0;
+      position: absolute;
+      right: 5%;
       @include media-breakpoint-down(md) {
-        padding-top: 325px;
+        width: 100%;
+        right: 0;
       }
 		}
 	}
 	.sec1-contents {
 		position: relative;
     z-index: 1;
-    padding-top: 160px;
+    padding: 160px 0 100px;
     @include media-breakpoint-down(lg) {
-      padding: 160px 20px 0;
+      padding: 160px 15px 100px;
     }
     @include media-breakpoint-down(md) {
-      padding-top: 125px;
+      padding: 140px 15px 140px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 130px 20px 20px;
     }
 	}
   @include media-breakpoint-down(sm) {
@@ -527,11 +545,18 @@ nav.fixed-top {
   &.section-jobs { 
     background: $green image-url('info-bg.jpg') no-repeat center bottom; 
     background-size: cover;
-    padding: 60px 0;
+    padding: 175px 0;
     h2 {
       font-weight: 700;
     }
+    @include media-breakpoint-down(lg) {
+      padding: 125px 70px;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 98px 10px;
+    }
     @include media-breakpoint-down(sm) {
+      padding: 55px 10px;
       background-image: none;
       h2 {
         font-size: 32px;

@@ -74,7 +74,7 @@
     <div class="form-check">
       <%= form.check_box :terms, class: 'form-check-input', required: true%>
       <label class="form-check-label" for="gridCheck">
-        I have agree to the <%= link_to 'Privacy Policy', privacy_policy_path %> and <%= link_to 'Terms and Conditions', terms_conditions_path %>.
+        I have agree to the <%= link_to 'Privacy Policy', privacy_policy_path, target: '_blank' %> and <%= link_to 'Terms and Conditions', terms_conditions_path, target: '_blank' %>.
       </label>
     </div>
   </div>

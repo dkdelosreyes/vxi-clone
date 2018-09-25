@@ -1,7 +1,7 @@
+require 'uri'
+require 'net/http'
+require 'json'
 class Applicant
-  require 'uri'
-  require 'net/http'
-  require 'json'
   include ActiveModel::Model
   attr_accessor :email, :user_phone_number, :first_name, :last_name, :location, :position, :education, :experience, :source_info
   

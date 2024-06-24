@@ -1,24 +1,22 @@
-# README
+# VXI clone landing page website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+This project is a landing page which captures candidate info based on their facebook profile details. Details are sent to Talkpush API to integrate with their CRM. It has an admin section used to manage the information shown on the form.
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+- **Framework:**
+  - Ruby on Rails
+  - Bootstrap
 
-* Configuration
+- **Frontend:**
+  - HTML
+  - CSS
+  - JavaScript
 
-* Database creation
+- **Database:**
+  - PostgreSQL
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **APIs:**
+  - Talkpush API
